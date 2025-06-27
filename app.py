@@ -5,8 +5,13 @@ import joblib
 import numpy as np
 from tensorflow.keras.models import load_model
 
-encoder = load_model('encoder.keras')
-model = joblib.load('voting_model.pkl') 
+@st.cache_resource
+def load_artifacts():
+    encoder   = load_model("encoder.keras", compile=False)
+    classifier = joblib.load("voting_model.pkl")
+    return encoder, classifier
+    
+encoder, classifier = load_artifacts()
 
 st.set_page_config(layout="centered", page_title="Epileptic Seizure Recognition")
 st.title("Epileptic Seizure Recognition")
@@ -28,19 +33,21 @@ if uploaded_file is not None:
         ax.set_title("EEG Signal (from uploaded CSV)")
         st.pyplot(fig)
 
-        df_cropped = df.iloc[:, :87] 
-        data_reshaped = df_cropped.values.reshape(-1, 87, 1)
-        encoded = encoder.predict(data_reshaped)
-        encoded_flat = encoded.reshape((encoded.shape[0], -1))
+        X_raw = df.values.astype("float32")
+        X_reshaped = X_raw.reshape((-1, 178, 1))
 
-        prediction = model.predict(df)[0]
-        label = "Seizure" if prediction == 1 else "Non-Seizure"
+        X_encoded = encoder.predict(X_reshaped)
+        X_flattened = X_encoded.reshape((X_encoded.shape[0], -1))
+        
+        y_pred = classifier.predict(X_flattened)
+        proba = (classifier.predict_proba(X_flattened)[:, 1]
+             if hasattr(classifier, "predict_proba") else None)
 
-        st.subheader("🧪 Prediction Result:")
-        st.markdown(f"**Prediction:** `{label}`", unsafe_allow_html=True)
-
-        if hasattr(model, "predict_proba"):
-            proba = model.predict_proba(df)[0][1] 
-            st.progress(proba)
-            st.markdown(f"Confidence: `{proba:.2f}`")
+        st.subheader("🧪 Prediction Results")
+        results = pd.DataFrame({
+            "Segment #": np.arange(len(y_pred)) + 1,
+            "Prediction": np.where(y_pred == 1, "Seizure", "Non-Seizure"),
+            "Confidence": np.round(proba, 3) if proba is not None else "-"
+        })
+        st.table(results)
 

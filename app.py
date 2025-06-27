@@ -55,26 +55,9 @@ if uploaded_file is not None:
         proba    = clf.predict_proba(X_flat)[:, 1]
 
         st.subheader("🧪 Prediction Results")
-        results = pd.DataFrame({
-            "Segment #": np.arange(len(y_pred)) + 1,
-            "Prediction": np.where(y_pred == 1, "Seizure", "Non-Seizure"),
-            "Confidence": np.round(proba, 3) if proba is not None else "-"
-        })
-        st.table(results)
-        
-        st.subheader("💡 Recommended Action (first segment)")
-        if y_pred[0] == 1:
-            st.markdown("""
-            **Seizure detected**  
-            • Consult a neurologist for full evaluation. 
-            • Review/adjust anti-epileptic medication (e.g., valproate, levetiracetam).  
-            • Keep a seizure diary and identify potential triggers.  
-            • Follow safety precautions (no solo swimming, careful with heights, etc.).
-            """)
+        if prediction == 1:
+            st.markdown("### 🧠 **Seizure Detected**", unsafe_allow_html=True)
+            st.markdown("🚨 **Recommended Action:** Seek immediate medical attention.")
         else:
-            st.markdown("""
-            **No seizure activity detected** in this segment.  
-            • Continue routine monitoring and healthy lifestyle.
-            • Seek medical advice if clinical symptoms persist.
-            • Schedule periodic EEG check-ups if there is a seizure history.
-            """)
+            st.markdown("### ✅ **No Seizure Detected**", unsafe_allow_html=True)
+            st.markdown("🛌 **Recommended Action:** Continue monitoring as usual.")

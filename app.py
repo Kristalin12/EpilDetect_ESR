@@ -3,6 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import joblib 
 import numpy as np
+import pywt  
 from tensorflow.keras.models import load_model
 
 @st.cache_resource
@@ -12,6 +13,15 @@ def load_artifacts():
     return encoder, classifier
     
 encoder, classifier = load_artifacts()
+
+def row_to_wavelet87(row_178, fs=173.61, wavelet_name="morl"):
+    """
+    row_178 : 1-D ndarray shape (178,)
+    returns : 1-D ndarray shape (87,)  (coeffs at time-index 0 for each scale)
+    """
+    scales = np.arange(0.25, (fs/20)+0.25, 0.1)       
+    coeffs, _ = pywt.cwt(row_178, scales, wavelet_name)
+    return coeffs[:, 0] 
 
 st.set_page_config(layout="centered", page_title="Epileptic Seizure Recognition")
 st.title("Epileptic Seizure Recognition")
@@ -33,15 +43,15 @@ if uploaded_file is not None:
         ax.set_title("EEG Signal (from uploaded CSV)")
         st.pyplot(fig)
 
-        X_raw = df.values.astype("float32")
-        X_reshaped = X_raw.reshape((-1, 178, 1))
-
-        X_encoded = encoder.predict(X_reshaped)
-        X_flattened = X_encoded.reshape((X_encoded.shape[0], -1))
+        X_wavelet = np.vstack([row_to_wavelet87(r) for r in df_raw.values])
+        X_scaled = scaler.transform(X_wavelet)
         
-        y_pred = classifier.predict(X_flattened)
-        proba = (classifier.predict_proba(X_flattened)[:, 1]
-             if hasattr(classifier, "predict_proba") else None)
+        X_resh   = X_scaled.reshape((-1, 87, 1))
+        latent   = encoder.predict(X_resh, verbose=0)
+        X_flat   = latent.reshape((latent.shape[0], -1))
+        
+        y_pred   = clf.predict(X_flat)
+        proba    = clf.predict_proba(X_flat)[:, 1]
 
         st.subheader("🧪 Prediction Results")
         results = pd.DataFrame({

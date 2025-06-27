@@ -54,10 +54,9 @@ if uploaded_file is not None:
         y_pred   = clf.predict(X_flat)
         proba    = clf.predict_proba(X_flat)[:, 1]
 
-        st.subheader("🧪 Prediction Results")
         if y_pred[0] == 1:
             st.markdown("# ⚠️ **Seizure Detected** ⚠️", unsafe_allow_html=True)
             st.markdown("🚨 **Recommended Action:** Seek immediate medical attention.")
         else:
-            st.markdown("### ✅ **No Seizure Detected**", unsafe_allow_html=True)
+            st.markdown("# ✅ **No Seizure Detected**", unsafe_allow_html=True)
             st.markdown("🛌 **Recommended Action:** Continue monitoring as usual.")

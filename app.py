@@ -16,11 +16,7 @@ def load_artifacts():
 encoder, clf, scaler = load_artifacts()
 
 def row_to_wavelet87(row_178, fs=173.61, wavelet_name="morl"):
-    """
-    row_178 : 1-D ndarray shape (178,)
-    returns : 1-D ndarray shape (87,)  (coeffs at time-index 0 for each scale)
-    """
-    scales = np.arange(0.25, (fs/20)+0.25, 0.1)       
+    scales = np.arange(0.25, (fs / 20) + 0.25, 0.1)
     coeffs, _ = pywt.cwt(row_178, scales, wavelet_name)
     return coeffs[:, 0] 
 

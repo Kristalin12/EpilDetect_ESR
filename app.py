@@ -28,7 +28,8 @@ if uploaded_file is not None:
         ax.set_title("EEG Signal (from uploaded CSV)")
         st.pyplot(fig)
 
-        data_reshaped = df.values.reshape(df.shape[0], df.shape[1], 1)
+        df_cropped = df.iloc[:, :87] 
+        data_reshaped = df_cropped.values.reshape(-1, 87, 1)
         encoded = encoder.predict(data_reshaped)
         encoded_flat = encoded.reshape((encoded.shape[0], -1))
 

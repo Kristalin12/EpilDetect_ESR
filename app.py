@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import joblib 
 import numpy as np
 
-model = joblib.load('voting_classifier.pkl') 
+model = joblib.load('voting_model.pkl') 
 
 st.set_page_config(layout="centered", page_title="Epileptic Seizure Recognition")
 st.title("🧠 Epileptic Seizure Recognition")

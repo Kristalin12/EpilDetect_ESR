@@ -3,12 +3,14 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import joblib 
 import numpy as np
+from tensorflow.keras.models import load_model
 
+encoder = load_model('encoder.keras')
 model = joblib.load('voting_model.pkl') 
 
 st.set_page_config(layout="centered", page_title="Epileptic Seizure Recognition")
-st.title("🧠 Epileptic Seizure Recognition")
-st.caption("Upload CSV file with 178 EEG features")
+st.title("Epileptic Seizure Recognition")
+st.caption("Upload CSV file dengan 178 fitur EEG")
 
 uploaded_file = st.file_uploader("Drag and drop file here", type=["csv"])
 
@@ -25,6 +27,10 @@ if uploaded_file is not None:
         ax.set_ylabel("Amplitude")
         ax.set_title("EEG Signal (from uploaded CSV)")
         st.pyplot(fig)
+
+        data_reshaped = df.values.reshape(df.shape[0], df.shape[1], 1)
+        encoded = encoder.predict(data_reshaped)
+        encoded_flat = encoded.reshape((encoded.shape[0], -1))
 
         prediction = model.predict(df)[0]
         label = "Seizure" if prediction == 1 else "Non-Seizure"

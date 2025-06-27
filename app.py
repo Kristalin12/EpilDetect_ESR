@@ -37,6 +37,8 @@ if uploaded_file is not None:
         st.error("CSV must have exactly 178 columns (features)")
     else:
         st.subheader("📈 EEG Signal")
+        st.write("Input data:")
+        st.write(input_data)
         fig, ax = plt.subplots()
         ax.plot(df.iloc[0].values, color="purple", linewidth=1)
         ax.set_xlabel("Time")

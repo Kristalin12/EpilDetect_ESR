@@ -44,7 +44,7 @@ if uploaded_file is not None:
         ax.set_title("EEG Signal (from uploaded CSV)")
         st.pyplot(fig)
 
-        X_wavelet = np.vstack([row_to_wavelet87(r) for r in df_raw.values])
+        X_wavelet = np.vstack([row_to_wavelet87(r) for r in df.values])
         X_scaled = scaler.transform(X_wavelet)
         
         X_resh   = X_scaled.reshape((-1, 87, 1))

@@ -15,14 +15,11 @@ def load_artifacts():
 
 encoder, clf, scaler = load_artifacts()
 
-def preprocess_row(row, fs=173.61):
-    wavelet = row_to_wavelet87(row, fs)
-    return wavelet
-
-X_raw = seizure_segments + baseline_segments  # Each is 178 values
-X_wavelet = np.array([preprocess_row(r) for r in X_raw])
-scaler = StandardScaler()
-X_scaled = scaler.fit_transform(X_wavelet) 
+def row_to_wavelet87(row, fs=173.61):
+    scales = np.arange(1, 89)  
+    coef, _ = pywt.cwt(row, scales, 'morl', 1/fs)
+    flat = coef[:, :].mean(axis=1)  
+    return flat[:87]  
 
 st.set_page_config(layout="centered", page_title="Epileptic Seizure Recognition")
 st.title("Epileptic Seizure Recognition")

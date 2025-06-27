@@ -8,11 +8,12 @@ from tensorflow.keras.models import load_model
 
 @st.cache_resource
 def load_artifacts():
-    encoder   = load_model("encoder.keras", compile=False)
-    classifier = joblib.load("voting_model.pkl")
-    return encoder, classifier
-    
-encoder, classifier = load_artifacts()
+    encoder   = load_model("encoder.keras", compile=False)      
+    clf       = joblib.load("voting_classifier.pkl")            
+    scaler    = joblib.load("scaler.pkl")                      
+    return encoder, clf, scaler
+
+encoder, clf, scaler = load_artifacts()
 
 def row_to_wavelet87(row_178, fs=173.61, wavelet_name="morl"):
     """
@@ -60,4 +61,20 @@ if uploaded_file is not None:
             "Confidence": np.round(proba, 3) if proba is not None else "-"
         })
         st.table(results)
-
+        
+        st.subheader("💡 Recommended Action (first segment)")
+        if y_pred[0] == 1:
+            st.markdown("""
+            **Seizure detected**  
+            • Consult a neurologist for full evaluation. 
+            • Review/adjust anti-epileptic medication (e.g., valproate, levetiracetam).  
+            • Keep a seizure diary and identify potential triggers.  
+            • Follow safety precautions (no solo swimming, careful with heights, etc.).
+            """)
+        else:
+            st.markdown("""
+            **No seizure activity detected** in this segment.  
+            • Continue routine monitoring and healthy lifestyle.
+            • Seek medical advice if clinical symptoms persist.
+            • Schedule periodic EEG check-ups if there is a seizure history.
+            """)

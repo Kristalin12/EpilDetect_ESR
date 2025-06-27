@@ -9,7 +9,7 @@ from tensorflow.keras.models import load_model
 @st.cache_resource
 def load_artifacts():
     encoder   = load_model("encoder.keras", compile=False)      
-    clf       = joblib.load("voting_classifier.pkl")            
+    clf       = joblib.load("voting_model.pkl")            
     scaler    = joblib.load("scaler.pkl")                      
     return encoder, clf, scaler
 

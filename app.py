@@ -38,7 +38,7 @@ if uploaded_file is not None:
     else:
         st.subheader("📈 EEG Signal")
         st.write("Input data:")
-        st.write(input_data)
+        st.write(df)
         fig, ax = plt.subplots()
         ax.plot(df.iloc[0].values, color="purple", linewidth=1)
         ax.set_xlabel("Time")

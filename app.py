@@ -16,8 +16,9 @@ def load_artifacts():
 encoder, clf, scaler = load_artifacts()
 
 def row_to_wavelet87(row, fs=173.61):
-    scales = np.arange(0.25, (fs / 20) + 0.25, 0.1)  
+    scales = np.arange(1, 88) 
     coeffs, _ = pywt.cwt(row, scales, 'morl', 1/fs)
+    flat = coef.mean(axis=1)
     return coeffs[:, 0]  
 
 st.set_page_config(layout="centered", page_title="Epileptic Seizure Recognition")
@@ -49,8 +50,8 @@ if uploaded_file is not None:
         latent   = encoder.predict(X_resh, verbose=0)
         X_flat   = latent.reshape((latent.shape[0], -1))
         
-        y_pred_proba = clf.predict_proba(X_flat)[:, 1]
-        y_pred = (y_pred_proba >= 0.56).astype(int)
+        y_pred = clf.predict(X_flat)
+        proba = clf.predict_proba(X_flat)[:, 1]
         
         if y_pred[0] == 1:
             st.markdown("# ⚠️ **Seizure Detected** ⚠️", unsafe_allow_html=True)

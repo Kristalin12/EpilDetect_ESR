@@ -79,7 +79,6 @@ st.markdown("""
 
     /* Inputs */
     .css-1cpxqw2 {
-        background-color: #3A1D20 !important;
         border: 1px solid #EB5456 !important;
         color: white !important;
     }
@@ -104,43 +103,9 @@ if os.path.exists(logo_path):
         st.image(Image.open(logo_path), width=120, output_format="auto")
     with col2:
         st.markdown("<h1>NeuroScan</h1>", unsafe_allow_html=True)
-        st.markdown("<h2>EEG-based epileptic seizure recognition<h2>")
+        st.markdown("EEG-based epileptic seizure recognition")
 else:
     st.markdown("<h1>NeuroScan</h1>", unsafe_allow_html=True)
-
-st.markdown("---")
-with st.expander("🔍 Tentang NeuroScan"):
-    st.markdown("""
-    **What is Epilepsy?**  
-    Epilepsy is a brain disorder that causes repeated seizures. Seizures are sudden bursts of electrical activity in the brain that can affect behavior, movement, or awareness.
-
-    **What is a Seizure?**  
-    A seizure is like a short circuit in the brain. It can cause jerking movements, confusion, staring spells, or even loss of consciousness — depending on the type.
-
-    **What is DALY?**  
-    DALY stands for *Disability-Adjusted Life Year*. It measures how much healthy life is lost due to illness or death. The higher the number, the bigger the impact of epilepsy on a person's life.
-
-    **What does this dashboard do?**  
-    This dashboard shows epilepsy data for different age groups. It lets you:
-    - View current and past epilepsy burden
-    - Predict future trends using machine learning
-    - Explore patterns by age and gender
-
-    **What ML (Machine Learning) is used?**  
-    A simple method called **Linear Regression** is used here to predict future values. It looks at trends from the past and draws a line to guess future numbers.
-    """)
-
-st.markdown("---")
-
-# Sidebar
-with st.sidebar:
-    selected = option_menu(
-        "Menu",
-        ["Dashboard", "Dataset", "Pengujian", "Tentang Peneliti"],
-        icons=["bar-chart", "folder", "gear", "info-circle"],
-        menu_icon="cast",
-        default_index=0,
-    )
 
 # Dashboard
 if selected == "Dashboard":

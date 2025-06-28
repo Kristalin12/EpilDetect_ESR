@@ -6,7 +6,23 @@ import numpy as np
 from tensorflow.keras.models import load_model
 from streamlit_option_menu import option_menu
 
-st.set_page_config(page_title="NeuroScan", layout="wide")
+def get_asset_path(filename):
+    return os.path.join(os.path.dirname(__file__), 'asset', filename)
+
+neuroscan_logo_path = get_asset_path('Logo.png')
+
+if os.path.exists(sigap_logo_path):
+    st.set_page_config(
+        page_title="NeuroScan - About",
+        page_icon=Image.open(neuroscan_logo_path),
+        layout="wide"
+    )
+else:
+    st.set_page_config(
+        page_title="NeuroScan - About",
+        page_icon=Image.open(neuroscan_logo_path),
+        layout="wide"
+    )
 
 # sidebar
 with st.sidebar:

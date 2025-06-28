@@ -50,12 +50,10 @@ if uploaded_file is not None:
         latent   = encoder.predict(X_resh, verbose=0)
         X_flat   = latent.reshape((latent.shape[0], -1))
         
-        y_pred   = clf.predict(X_flat)
-        proba    = clf.predict_proba(X_flat)[:, 1]
-
-        pd.Series(y_test).value_counts()
+        y_pred_proba = clf.predict_proba(X_flat)[:, 1]
+        y_pred = (y_pred_proba >= 0.65).astype(int)
         
-        if y_pred[0] == 1:
+        if y_pred_proba[0] == 1:
             st.markdown("# ⚠️ **Seizure Detected** ⚠️", unsafe_allow_html=True)
             st.markdown("#### **Recommended Action:** Seek immediate medical attention.")
         else:

@@ -7,6 +7,66 @@ from tensorflow.keras.models import load_model
 
 st.set_page_config(page_title="NeuroScan | Epilepsy AI Dashboard", layout="wide")
 
+st.markdown("""
+    <style>
+    /* Main background */
+    .stApp {
+        background-color: #f9feff !important;
+        color: #080808 !important;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    /* Headings */
+    h1, h2, h3 {
+        color: #f9feff;
+    }
+
+    /* Metrics */
+    [data-testid="metric-container"] {
+        background-color: #f9feff;
+        color: #080808;
+        border-radius: 12px;
+        padding: 15px;
+        box-shadow: 0 0 10px rgba(216, 76, 76, 0.3);
+    }
+
+    /* Tabs */
+    .stTabs [role="tablist"] {
+        background: #f9feff;
+        border-radius: 10px;
+    }
+    .stTabs [role="tab"] {
+        color: #f9feff;
+        padding: 10px;
+    }
+    .stTabs [aria-selected="true"] {
+        border-bottom: 4px solid #f9feff;
+        color: #FF9FA2;
+    }
+
+    /* Buttons */
+    .stButton>button {
+        background-color: #D84C4C;
+        color: white;
+        border-radius: 8px;
+        padding: 10px 20px;
+        border: none;
+    }
+    .stButton>button:hover {
+        background-color: #B43E3E;
+        transition: 0.3s ease-in-out;
+    }
+
+    /* Inputs */
+    .css-1cpxqw2 {
+        background-color: #3A1D20 !important;
+        border: 1px solid #EB5456 !important;
+        color: white !important;
+    }
+
+    </style>
+""", unsafe_allow_html=True)
+
 @st.cache_resource
 def load_artifacts():
     encoder   = load_model("encoder.keras", compile=False)      

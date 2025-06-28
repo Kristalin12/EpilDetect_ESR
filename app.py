@@ -18,7 +18,7 @@ encoder, clf, scaler = load_artifacts()
 def row_to_wavelet87(row, fs=173.61):
     scales = np.arange(1, 88) 
     coeffs, _ = pywt.cwt(row, scales, 'morl', 1/fs)
-    flat = coef.mean(axis=1)
+    flat = coeffs.mean(axis=1)
     return coeffs[:, 0]  
 
 st.set_page_config(layout="centered", page_title="Epileptic Seizure Recognition")

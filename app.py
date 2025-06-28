@@ -42,7 +42,7 @@ if uploaded_file is not None:
         X_flat   = latent.reshape((latent.shape[0], -1))
         
         y_pred_proba = clf.predict_proba(X_flat)[:, 1]
-        y_pred       = (y_pred_proba >= 0.56).astype(int)
+        y_pred       = (y_pred_proba >= 0.6).astype(int)
         
         if y_pred[0] == 1:
             st.markdown("# ⚠️ **Seizure Detected** ⚠️", unsafe_allow_html=True)

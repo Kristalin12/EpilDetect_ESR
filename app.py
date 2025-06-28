@@ -98,10 +98,10 @@ with st.sidebar:
     )
 
 
-if os.path.exists(neuroscan_logo_path):
+if os.path.exists(logo_path):
     col1, col2 = st.columns([1, 3])
     with col1:
-        st.image(Image.open(neuroscan_logo_path), width=120, output_format="auto")
+        st.image(Image.open(logo_path), width=120, output_format="auto")
     with col2:
         st.markdown("<h1>NeuroScan</h1>", unsafe_allow_html=True)
         st.markdown("<h2>EEG-based epileptic seizure recognition<h2>")

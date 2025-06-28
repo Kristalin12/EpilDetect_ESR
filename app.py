@@ -109,7 +109,7 @@ else:
 
 # Dashboard
 if selected == "Dashboard":
-    st.title("📊 Dashboard NeuroScan")
+    st.header("Tentang NeuroScan")
     st.markdown("""
         **Apa itu NeuroScan?**  
         NeuroScan adalah platform berbasis EEG (Electroencephalogram) untuk mendeteksi kejang epilepsi secara otomatis menggunakan metode pembelajaran mesin.

@@ -8,6 +8,9 @@ from tensorflow.keras.models import load_model
 from streamlit_option_menu import option_menu
 from PIL import Image
 
+# Page Config
+st.set_page_config(page_title="Epileptic Seizure Recognition", layout="wide")
+
 def get_asset_path(filename):
     return os.path.join(os.path.dirname(__file__), 'asset', filename)
 
@@ -28,84 +31,107 @@ else:
     
 # style
 st.markdown("""
-<style>
-    /* Base responsive styles */
-    .main .block-container {
-        padding-top: 1rem;
-        padding-bottom: 1rem;
+    <style>
+    /* Main background */
+    .stApp {
+        background-color: #2E0F15 !important;
+        color: #FAFFF0 !important;
+        font-family: 'Segoe UI', sans-serif;
     }
-    
-    /* Mobile specific adjustments */
-    @media (max-width: 640px) {
-        h1 {
-            font-size: 1.5rem !important;
-        }
-        h2 {
-            font-size: 1.3rem !important;
-        }
-        h3 {
-            font-size: 1.1rem !important;
-        }
-        p, li {
-            font-size: 0.9rem !important;
-        }
-        .main .block-container {
-            padding-left: 0.5rem;
-            padding-right: 0.5rem;
-        }
+
+    /* Sidebar */
+    .css-1d391kg {
+        background-color: #842C35 !important;
+        backdrop-filter: blur(6px);
+        color: #FAFFF0 !important;
+        border-right: 1px solid #EB5456;
     }
-    
-    /* Improve spacing on mobile */
-    .stImage {
-        margin-bottom: 1rem;
+
+    /* Headings */
+    h1, h2, h3 {
+        color: #FF9FA2;
     }
-    
-    /* Make sure images don't overflow on mobile */
-    img {
-        max-width: 90%;
-        height: auto;
+
+    /* Metrics */
+    [data-testid="metric-container"] {
+        background-color: #EB5456;
+        color: #FAFFF0;
+        border-radius: 12px;
+        padding: 15px;
+        box-shadow: 0 0 10px rgba(216, 76, 76, 0.3);
     }
-    
-    /* Better column layout on mobile */
-    @media (max-width: 640px) {
-        .row-widget.stHorizontal {
-            flex-direction: column;
-        }
-        .row-widget.stHorizontal > div {
-            width: 100% !important;
-            margin-bottom: 1rem;
-        }
+
+    /* Tabs */
+    .stTabs [role="tablist"] {
+        background: #842C35;
+        border-radius: 10px;
     }
-    
-    /* Styling for the logout button */
-    .logout-btn {
-        background-color: #f44336 !important;
+    .stTabs [role="tab"] {
+        color: #FAFFF0;
+        padding: 10px;
+    }
+    .stTabs [aria-selected="true"] {
+        border-bottom: 4px solid #FF6968;
+        color: #FF9FA2;
+    }
+
+    /* Buttons */
+    .stButton>button {
+        background-color: #D84C4C;
+        color: white;
+        border-radius: 8px;
+        padding: 10px 20px;
+        border: none;
+    }
+    .stButton>button:hover {
+        background-color: #B43E3E;
+        transition: 0.3s ease-in-out;
+    }
+
+    /* Inputs */
+    .css-1cpxqw2 {
+        background-color: #3A1D20 !important;
+        border: 1px solid #EB5456 !important;
         color: white !important;
-        font-weight: 500 !important;
-        border: none !important;
-        padding: 8px 12px !important;
-        border-radius: 5px !important;
-        transition: all 0.3s !important;
-        margin-top: 10px;
     }
-    
-    .logout-btn:hover {
-        background-color: #d32f2f !important;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.2) !important;
-    }
-</style>
+
+    </style>
 """, unsafe_allow_html=True)
 
-# Dashboard
+# Dashboard Header
 if os.path.exists(neuroscan_logo_path):
     col1, col2 = st.columns([1, 3])
     with col1:
         st.image(Image.open(neuroscan_logo_path), width=120, output_format="auto")
     with col2:
         st.markdown("<h1>NeuroScan</h1>", unsafe_allow_html=True)
-        st.markdown("EEG-based epileptic seizure recognition")
+        st.markdown("<h2>EEG-based epileptic seizure recognition<h2>")
 else:
     st.markdown("<h1>NeuroScan</h1>", unsafe_allow_html=True)
+
+st.markdown("---")
+with st.expander("🔍 Tentang NeuroScan"):
+    st.markdown("""
+    **What is Epilepsy?**  
+    Epilepsy is a brain disorder that causes repeated seizures. Seizures are sudden bursts of electrical activity in the brain that can affect behavior, movement, or awareness.
+
+    **What is a Seizure?**  
+    A seizure is like a short circuit in the brain. It can cause jerking movements, confusion, staring spells, or even loss of consciousness — depending on the type.
+
+    **What is DALY?**  
+    DALY stands for *Disability-Adjusted Life Year*. It measures how much healthy life is lost due to illness or death. The higher the number, the bigger the impact of epilepsy on a person's life.
+
+    **What does this dashboard do?**  
+    This dashboard shows epilepsy data for different age groups. It lets you:
+    - View current and past epilepsy burden
+    - Predict future trends using machine learning
+    - Explore patterns by age and gender
+
+    **What ML (Machine Learning) is used?**  
+    A simple method called **Linear Regression** is used here to predict future values. It looks at trends from the past and draws a line to guess future numbers.
+    """)
+
+st.markdown("---")
 
 # sidebar
 with st.sidebar:
@@ -126,7 +152,6 @@ def load_artifacts():
 
 encoder, clf, scaler = load_artifacts()
 
-st.set_page_config(layout="centered", page_title="Epileptic Seizure Recognition")
 st.title("Epileptic Seizure Recognition")
 st.caption("Upload CSV file dengan 178 fitur EEG")
 

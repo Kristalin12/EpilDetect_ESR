@@ -25,6 +25,76 @@ else:
         page_icon=Image.open(neuroscan_logo_path),
         layout="wide"
     )
+    
+# style
+st.markdown("""
+<style>
+    /* Base responsive styles */
+    .main .block-container {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+    
+    /* Mobile specific adjustments */
+    @media (max-width: 640px) {
+        h1 {
+            font-size: 1.5rem !important;
+        }
+        h2 {
+            font-size: 1.3rem !important;
+        }
+        h3 {
+            font-size: 1.1rem !important;
+        }
+        p, li {
+            font-size: 0.9rem !important;
+        }
+        .main .block-container {
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+        }
+    }
+    
+    /* Improve spacing on mobile */
+    .stImage {
+        margin-bottom: 1rem;
+    }
+    
+    /* Make sure images don't overflow on mobile */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    /* Better column layout on mobile */
+    @media (max-width: 640px) {
+        .row-widget.stHorizontal {
+            flex-direction: column;
+        }
+        .row-widget.stHorizontal > div {
+            width: 100% !important;
+            margin-bottom: 1rem;
+        }
+    }
+    
+    /* Styling for the logout button */
+    .logout-btn {
+        background-color: #f44336 !important;
+        color: white !important;
+        font-weight: 500 !important;
+        border: none !important;
+        padding: 8px 12px !important;
+        border-radius: 5px !important;
+        transition: all 0.3s !important;
+        margin-top: 10px;
+    }
+    
+    .logout-btn:hover {
+        background-color: #d32f2f !important;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2) !important;
+    }
+</style>
+""", unsafe_allow_html=True)
 
 # sidebar
 with st.sidebar:

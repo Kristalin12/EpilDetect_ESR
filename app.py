@@ -5,6 +5,8 @@ import joblib
 import numpy as np
 from tensorflow.keras.models import load_model
 
+st.set_page_config(page_title="NeuroScan | Epilepsy AI Dashboard", layout="wide")
+
 @st.cache_resource
 def load_artifacts():
     encoder   = load_model("encoder.keras", compile=False)      

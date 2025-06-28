@@ -11,25 +11,14 @@ from PIL import Image
 # Page Config
 st.set_page_config(page_title="Epileptic Seizure Recognition", layout="wide")
 
-def get_asset_path(filename):
-    return os.path.join(os.path.dirname(__file__), 'asset', filename)
+# Helper – asset path (logo, icons, etc.)
+def get_asset_path(filename: str) -> str:
+    return os.path.join(os.path.dirname(__file__), "asset", filename)
 
-neuroscan_logo_path = get_asset_path('Logo.png')
-
-if os.path.exists(neuroscan_logo_path):
-    st.set_page_config(
-        page_title="NeuroScan - About",
-        page_icon=Image.open(neuroscan_logo_path),
-        layout="wide"
-    )
-else:
-    st.set_page_config(
-        page_title="NeuroScan - About",
-        page_icon=Image.open(neuroscan_logo_path),
-        layout="wide"
-    )
+logo_path = get_asset_path("Logo.png")
+logo_img  = Image.open(logo_path) if os.path.exists(logo_path) else None
     
-# style
+# Global CSS styling
 st.markdown("""
     <style>
     /* Main background */
@@ -98,7 +87,17 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Dashboard Header
+# Sidebar navigation
+with st.sidebar:
+    selected = option_menu(
+        "Menu",
+        ["Dashboard", "Dataset", "Pengujian", "Tentang Peneliti"],
+        icons=["bar-chart", "folder", "cpu", "person-circle"],
+        menu_icon="cast",
+        default_index=0,
+    )
+
+
 if os.path.exists(neuroscan_logo_path):
     col1, col2 = st.columns([1, 3])
     with col1:
@@ -133,7 +132,7 @@ with st.expander("🔍 Tentang NeuroScan"):
 
 st.markdown("---")
 
-# sidebar
+# Sidebar
 with st.sidebar:
     selected = option_menu(
         "Menu",
@@ -143,47 +142,26 @@ with st.sidebar:
         default_index=0,
     )
 
-@st.cache_resource
-def load_artifacts():
-    encoder   = load_model("encoder.keras", compile=False)      
-    clf       = joblib.load("voting_model.pkl")            
-    scaler    = joblib.load("scaler.pkl")                      
-    return encoder, clf, scaler
+# Dashboard
+if selected == "Dashboard":
+    st.title("📊 Dashboard NeuroScan")
+    st.markdown("""
+        **Apa itu NeuroScan?**  
+        NeuroScan adalah platform berbasis EEG (Electroencephalogram) untuk mendeteksi kejang epilepsi secara otomatis menggunakan metode pembelajaran mesin.
 
-encoder, clf, scaler = load_artifacts()
+        **Tujuan Dashboard Ini:**  
+        - Memberikan penjelasan dasar tentang epilepsi dan pentingnya deteksi dini
+        - Menjelaskan cara kerja sistem prediksi
+        - Menyediakan visualisasi hasil prediksi secara mudah dan intuitif
 
-st.title("Epileptic Seizure Recognition")
-st.caption("Upload CSV file dengan 178 fitur EEG")
+        **Fitur Utama:**  
+        - Lihat dataset pelatihan  
+        - Uji data EEG baru  
+        - Lihat prediksi secara langsung  
+        - Pelajari latar belakang dan peneliti
 
-uploaded_file = st.file_uploader("Drag and drop file here", type=["csv"])
-
-if uploaded_file is not None:
-    df = pd.read_csv(uploaded_file)
-
-    if df.shape[1] != 178:
-        st.error("CSV must have exactly 178 columns (features)")
-    else:
-        st.subheader("📈 EEG Signal")
-        st.write("Input data:")
-        st.write(df)
-        fig, ax = plt.subplots()
-        ax.plot(df.iloc[0].values, color="purple", linewidth=1)
-        ax.set_xlabel("Time")
-        ax.set_ylabel("Amplitude")
-        ax.set_title("EEG Signal (from uploaded CSV)")
-        st.pyplot(fig)
-
-        X_scaled = scaler.transform(df.values)
-        X_resh   = X_scaled.reshape((-1, 178, 1))
-        latent   = encoder.predict(X_resh, verbose=0)
-        X_flat   = latent.reshape((latent.shape[0], -1))
-        
-        y_pred_proba = clf.predict_proba(X_flat)[:, 1]
-        y_pred       = (y_pred_proba >= 0.4).astype(int)
-        
-        if y_pred[0] == 1:
-            st.markdown("# ⚠️ **Seizure Detected** ⚠️", unsafe_allow_html=True)
-            st.markdown("#### **Recommended Action:** Seek immediate medical attention.")
-        else:
-            st.markdown("# ✅ **No Seizure Detected**", unsafe_allow_html=True)
-            st.markdown("#### **Recommended Action:** Continue monitoring as usual.")
+        **Metode yang Digunakan:**  
+        - **CNN Autoencoder**: Untuk ekstraksi fitur dari sinyal EEG  
+        - **Voting Classifier (Logistic Regression + SVM)**: Untuk klasifikasi kejang  
+        - **Standard Scaler**: Untuk normalisasi data
+    """)

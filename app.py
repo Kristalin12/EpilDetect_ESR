@@ -12,7 +12,7 @@ def get_asset_path(filename):
 
 neuroscan_logo_path = get_asset_path('Logo.png')
 
-if os.path.exists(sigap_logo_path):
+if os.path.exists(neuroscan_logo_path):
     st.set_page_config(
         page_title="NeuroScan - About",
         page_icon=Image.open(neuroscan_logo_path),

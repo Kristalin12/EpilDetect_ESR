@@ -52,6 +52,11 @@ if uploaded_file is not None:
         
         y_pred_proba = clf.predict_proba(X_flat)[:, 1]
         y_pred = (y_pred_proba >= 0.65).astype(int)
+
+        seizure_probs = y_pred_proba[y_test == 1]
+        baseline_probs = y_pred_proba[y_test == 0]
+        print("Avg seizure proba:", seizure_probs.mean())
+        print("Avg baseline proba:", baseline_probs.mean())
         
         if y_pred_proba[0] == 1:
             st.markdown("# ⚠️ **Seizure Detected** ⚠️", unsafe_allow_html=True)

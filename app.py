@@ -3,7 +3,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import joblib 
 import numpy as np
-import pywt  
 from tensorflow.keras.models import load_model
 
 @st.cache_resource
@@ -14,12 +13,6 @@ def load_artifacts():
     return encoder, clf, scaler
 
 encoder, clf, scaler = load_artifacts()
-
-def row_to_wavelet87(row, fs=173.61):
-    scales = np.arange(1, 88) 
-    coeffs, _ = pywt.cwt(row, scales, 'morl', 1/fs)
-    flat = coeffs.mean(axis=1)
-    return coeffs[:, 0]  
 
 st.set_page_config(layout="centered", page_title="Epileptic Seizure Recognition")
 st.title("Epileptic Seizure Recognition")
@@ -43,10 +36,8 @@ if uploaded_file is not None:
         ax.set_title("EEG Signal (from uploaded CSV)")
         st.pyplot(fig)
 
-        X_wavelet = np.vstack([row_to_wavelet87(r) for r in df.values])
-        X_scaled = scaler.transform(X_wavelet)
-        
-        X_resh   = X_scaled.reshape((-1, 87, 1))
+        X_scaled = scaler.transform(df.values)
+        X_resh   = X_scaled.reshape((-1, 178, 1))
         latent   = encoder.predict(X_resh, verbose=0)
         X_flat   = latent.reshape((latent.shape[0], -1))
         

@@ -21,68 +21,29 @@ logo_img  = Image.open(logo_path) if os.path.exists(logo_path) else None
 # Global CSS styling
 st.markdown("""
     <style>
-    /* Main background */
-    .stApp {
-        background-color: #2E0F15 !important;
-        color: #FAFFF0 !important;
-        font-family: 'Segoe UI', sans-serif;
+    .big-title {
+        font-size: 38px;
+        font-weight: 900;
+        color: #1a1a1a;
     }
-
-    /* Sidebar */
-    .css-1d391kg {
-        background-color: #842C35 !important;
-        backdrop-filter: blur(6px);
-        color: #FAFFF0 !important;
-        border-right: 1px solid #EB5456;
+    .section-subtitle {
+        font-size: 18px;
+        font-weight: 400;
+        color: #333333;
     }
-
-    /* Headings */
-    h1, h2, h3 {
-        color: #FF9FA2;
-    }
-
-    /* Metrics */
-    [data-testid="metric-container"] {
-        background-color: #EB5456;
-        color: #FAFFF0;
-        border-radius: 12px;
-        padding: 15px;
-        box-shadow: 0 0 10px rgba(216, 76, 76, 0.3);
-    }
-
-    /* Tabs */
-    .stTabs [role="tablist"] {
-        background: #842C35;
+    .box {
+        border: 1px solid #e0e0e0;
         border-radius: 10px;
+        padding: 20px;
+        background-color: #fafafa;
+        margin: 10px;
     }
-    .stTabs [role="tab"] {
-        color: #FAFFF0;
-        padding: 10px;
+    .box-title {
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 10px;
+        color: #2c2c2c;
     }
-    .stTabs [aria-selected="true"] {
-        border-bottom: 4px solid #FF6968;
-        color: #FF9FA2;
-    }
-
-    /* Buttons */
-    .stButton>button {
-        background-color: #D84C4C;
-        color: white;
-        border-radius: 8px;
-        padding: 10px 20px;
-        border: none;
-    }
-    .stButton>button:hover {
-        background-color: #B43E3E;
-        transition: 0.3s ease-in-out;
-    }
-
-    /* Inputs */
-    .css-1cpxqw2 {
-        border: 1px solid #EB5456 !important;
-        color: white !important;
-    }
-
     </style>
 """, unsafe_allow_html=True)
 
@@ -103,7 +64,7 @@ if os.path.exists(logo_path):
         st.image(Image.open(logo_path), width=120, output_format="auto")
     with col2:
         st.markdown("<h1>NeuroScan</h1>", unsafe_allow_html=True)
-        st.markdown("EEG-based epileptic seizure recognition")
+        st.title("EEG-based epileptic seizure recognition")
 else:
     st.markdown("<h1>NeuroScan</h1>", unsafe_allow_html=True)
 

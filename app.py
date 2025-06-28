@@ -13,7 +13,7 @@ with st.sidebar:
     selected = option_menu(
         "Menu",
         ["Dashboard", "Dataset", "Pengujian", "Tentang Peneliti"],
-        icons=["bar-chart", "info-circle", "activity", "check2-square", "envelope"],
+        icons=["bar-chart", "folder", "gear", "info-circle"],
         menu_icon="cast",
         default_index=0,
     )

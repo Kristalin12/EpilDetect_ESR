@@ -62,7 +62,7 @@ st.markdown("""
     
     /* Make sure images don't overflow on mobile */
     img {
-        max-width: 100%;
+        max-width: 90%;
         height: auto;
     }
     

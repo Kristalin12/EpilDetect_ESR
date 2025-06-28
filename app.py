@@ -6,6 +6,7 @@ import joblib
 import numpy as np
 from tensorflow.keras.models import load_model
 from streamlit_option_menu import option_menu
+from PIL import Image
 
 def get_asset_path(filename):
     return os.path.join(os.path.dirname(__file__), 'asset', filename)

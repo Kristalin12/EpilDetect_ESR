@@ -52,6 +52,8 @@ if uploaded_file is not None:
         
         y_pred   = clf.predict(X_flat)
         proba    = clf.predict_proba(X_flat)[:, 1]
+
+        pd.Series(y_test).value_counts()
         
         if y_pred[0] == 1:
             st.markdown("# ⚠️ **Seizure Detected** ⚠️", unsafe_allow_html=True)

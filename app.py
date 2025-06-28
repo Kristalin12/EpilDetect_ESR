@@ -76,31 +76,7 @@ if selected == "Dashboard":
         NeuroScan adalah implementasi sistem deteksi kejang epilepsi secara otomatis menggunakan metode Convolutional Autoencoder untuk ekstraksi fitur dan gabnungan Regresi Logistik dan SVM menggunakan soft voting untuk klasifikasi sebagai hasil dari penelitian “Optimasi Regresi Logistik dan Support Vector Machine Menggunakan Convolutional Autoencoder Untuk Deteksi Kejang Epilepsi”..
 
         **Model CAE dan LR-SVM:**  
-        col1, col2, col3 = st.columns(3)
-        with col1:
-        st.markdown("""
-        <div class='box'>
-            <div class='box-title'>Convolutional Autoencoder</div>
-            Digunakan untuk melakukan ekstraksi fitur secara otomatis, dan menangkap pola spasial pada data sekuensial seperti data EEG.* (DRD).
-        </div>
-        """, unsafe_allow_html=True)
-    
-        with col2:
-        st.markdown("""
-        <div class='box'>
-        <div class='box-title'>Regresi Logistik</div>
-        Digunakan untuk mengoptimasi *hyperparameter* dari *Logistic Regression (LR)*: *C, Penalty, max_iter, random_state, tolerance, dan fit_intercept*.
-    </div>
-    """, unsafe_allow_html=True)
-
-with col3:
-    st.markdown("""
-    <div class='box'>
-        <div class='box-title'>Logistic Regression</div>
-        Classifier yang dioptimasi oleh PSO untuk mendeteksi adanya retinopati dari fitur-fitur yang telah direduksi.
-    </div>
-    """, unsafe_allow_html=True)
-
+        
         **Fitur Utama:**  
         - Lihat dataset pelatihan  
         - Uji data EEG baru  

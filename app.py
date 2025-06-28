@@ -64,7 +64,7 @@ if os.path.exists(logo_path):
         st.image(Image.open(logo_path), width=120, output_format="auto")
     with col2:
         st.markdown("<h1>NeuroScan</h1>", unsafe_allow_html=True)
-        st.title("EEG-based epileptic seizure recognition")
+        st.markdown("EEG-based epileptic seizure recognition")
 else:
     st.markdown("<h1>NeuroScan</h1>", unsafe_allow_html=True)
 

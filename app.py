@@ -96,6 +96,16 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+# Dashboard
+if os.path.exists(neuroscan_logo_path):
+    col1, col2 = st.columns([1, 3])
+    with col1:
+        st.image(Image.open(neuroscan_logo_path), width=120, use_container_width=True)
+    with col2:
+        st.title("NeuroScan - Epileptic Seizure Recognition")
+else:
+    st.title("NeuroScan - Epileptic Seizure Recognition")
+
 # sidebar
 with st.sidebar:
     selected = option_menu(

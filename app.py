@@ -332,7 +332,8 @@ elif selected == 'Klasifikasi EEG':
         else:
             clr = {0: "royalblue", 1: "crimson"}
             lbl = {0: "Non‑Seizure", 1: "Seizure"}
-            
+
+            st.markdown("---")
             st.subheader("📈 EEG Signal")
             st.write("Input data:")
             st.write(df)
@@ -363,6 +364,7 @@ elif selected == 'Klasifikasi EEG':
             
             if y_pred[0] == 1:
                 st.error(" The person is experiencing a seizure!", icon="😟")
+                st.markdown("---")
                 st.markdown("## ⚠️ Saran Dokter yang Penting ⚠️")
                 st.markdown("""
                     - Minum obat secara konsisten pada waktu yang sama setiap hari.
@@ -373,3 +375,12 @@ elif selected == 'Klasifikasi EEG':
                 """)
             else:
                 st.success(" No seizure detected. All clear!", icon="😌")
+                st.markdown("---")
+                st.markdown("## ⚠️ Saran Dokter yang Penting ⚠️")
+                st.markdown("""
+                    - Menjaga kesehatan secara umum dengan diet yang sehat dan olahraga.
+                    - Tidur yang cukup dan hindari alkohol atau narkoba.
+                    - Kelola stres
+                    - Menjalani vaksinasi yang dianjurkan.
+                    - Mencegah cedera kepala dengan menggunakan pengaman dan berhati-hati.
+                """)

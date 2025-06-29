@@ -31,13 +31,18 @@ st.markdown("""
         font-weight: 400;
         color: #333333;
     }
-    .scroll-container {
-        height: 500px;
-        overflow-y: auto;
+    .horizontal-scroll {
+        display: flex;
+        overflow-x: auto;
         padding: 10px;
-        border: 1px solid #ddd;
-        border-radius: 10px;
-        background-color: #fafafa;
+        gap: 20px;
+    }
+    .horizontal-scroll::-webkit-scrollbar {
+        height: 8px;
+    }
+    .horizontal-scroll::-webkit-scrollbar-thumb {
+        background: #ccc;
+        border-radius: 4px;
     }
     .box {
         border: 1px solid #e0e0e0;
@@ -87,7 +92,7 @@ if selected == "Dashboard":
     # MODEL EXPLAINATION
     st.markdown("### Model CAE dan LR-SVM:")
     st.markdown("""
-    <div class="scroll-container">
+    <div class="horizontal-scroll">
         <div class="box">
             <div class="box-title">Convolutional Autoencoder</div>
             Digunakan untuk ekstraksi fitur dataset yang digunakan, yaitu dataset <i>Epileptic Seizure Recognition</i> (ESR).

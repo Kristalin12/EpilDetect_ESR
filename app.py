@@ -347,7 +347,7 @@ elif selected == 'Klasifikasi EEG':
             
             fig, ax = plt.subplots(figsize=(4, 2.5))
             for i, row in df.iterrows():
-                y = pred[i]
+                y = y_pred[i]
                 ax.plot(
                     row.values,
                     color=clr[y],

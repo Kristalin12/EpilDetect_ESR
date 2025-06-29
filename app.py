@@ -267,9 +267,9 @@ elif selected == 'Dataset':
         ax.set_ylabel("Amplitudo")
         st.pyplot(fig)
     st.markdown("## Visualisasi Distribusi Kelas") 
-    col1, col2= st.columns([3, 4])        
+    col1, col2= st.columns([4, 4])        
     with col1:
-        st.image("asset/Distribusi_Kelas.png", caption="", width=800, use_container_width=True)
+        st.image("asset/Distribusi_Kelas.png", caption="", width=900, use_container_width=True)
     with col2:
         st.markdown("""
             <div class='content'>

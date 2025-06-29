@@ -157,7 +157,7 @@ with st.sidebar:
 
 # Dashboard
 if selected == "🏠 Dashboard":
-col1, col2 = st.columns([1, 3])
+    col1, col2 = st.columns([1, 3])
     with col1:
         st.image(Image.open(logo_path), width=150, output_format="auto")
     with col2:

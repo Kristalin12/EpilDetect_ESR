@@ -222,3 +222,14 @@ if selected == "Dashboard":
         st.markdown("""
         Teknik yang melakukan prediksi dengan penggabungan beberapa algoritma, dalam hal ini regresi logistik dan SVM, yang kemudian digabungkan untuk mendapatkan jumlah probabilitas yang tertimbang..
         """)
+
+#---Dataset---
+elif selected == 'Dataset':
+    st.markdown("""
+    <div class='content'>
+        <h2>Epileptic Seizure Recognition Dataset</h2>
+        <p style='text-align: justify;'>
+            Dataset yang digunakan untuk penelitian ini adalah dataset epileptic seizure recognition dari kaggle, yang merupakan versi dataset Universitas Bonn yang telah direkonstruksi dan telah dibentuk kembali. Pada dataset ini 4097 titik data dibagi dan diacak menjadi 23 potongan. Oleh karena itu, setiap segmen pada dataset memiliki 23 potongan sehingga 23 x 500 menghasilkan 11.500 baris elemen informasi yang membentuk data, dengan setiap informasi berisikan 178 titik data selama satu detik. 
+        </p>
+    </div>
+    """, unsafe_allow_html=True)

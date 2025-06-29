@@ -70,7 +70,6 @@ st.markdown("""
         color: #333333;
     }
     [data-testid="stSidebar"] {
-        background-color: #f8f9fa;
         padding-top: 30px;
     }
     .horizontal-scroll {

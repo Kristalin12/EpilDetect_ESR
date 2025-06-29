@@ -274,7 +274,7 @@ elif selected == 'Dataset':
     
     col_pie, col_bar = st.columns(2)
     with col_pie:
-        fig, ax = plt.subplots(figsize=(4, 4))
+        fig, ax = plt.subplots(figsize=(3, 3))
         wedges, texts, autotexts = ax.pie(
         counts,
         labels=labels,
@@ -283,8 +283,6 @@ elif selected == 'Dataset':
         colors=colors,
         textprops={'color': 'black'}
         )
-        centre_circle = plt.Circle((0, 0), 0.55, fc='white')
-        ax.add_artist(centre_circle)
         ax.set_title("Distribusi Kelas", fontsize=12)
         ax.axis('equal')
         st.pyplot(fig, use_container_width=True)

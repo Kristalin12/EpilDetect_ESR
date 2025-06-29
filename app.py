@@ -362,9 +362,6 @@ elif selected == 'Klasifikasi EEG':
             st.pyplot(fig, use_container_width=False)
             
             if y_pred[0] == 1:
-                st.markdown("# ⚠️ **Seizure Detected** ⚠️", unsafe_allow_html=True)
-                st.markdown("#### **Recommended Action:** Seek immediate medical attention.")
+                st.error("⚠️ The person is experiencing a seizure!", icon="😟")
             else:
-                st.markdown("# ✅ **No Seizure Detected**", unsafe_allow_html=True)
-                st.markdown("#### **Recommended Action:** Continue monitoring as usual.")
-    
+                st.success("✅ No seizure detected. All clear!", icon="😌")

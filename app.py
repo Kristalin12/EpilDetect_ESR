@@ -272,36 +272,39 @@ elif selected == 'Dataset':
     labels = ['non-kejang', 'kejang']  
     colors = ['orange', 'royalblue'] 
     
-    col_pie, col_bar, col_define = st.columns(3)
+    col_pie, col_bar, col_define = st.columns([2, 1.2, 1.2])
+    with col_define:
+        st.markdown("""
+            <div class='content'>
+                <p style='text-align: justify;'>
+                Sesuai dengan visualisasi distribusi kelas dari pie chart dan bar chart di atas, dataset merupakan dataset yang <b>tidak seimbang</b> dengan data <b>non-kejang</b> sebesar <b>9200</b> dan data <b>kejang</b> sebesar <b>2300</b>.
+                </p>
+            </div>
+        """, unsafe_allow_html=True)
     with col_pie:
-        fig, ax = plt.subplots(figsize=(2, 2))
+        fig, ax = plt.subplots(figsize=(4, 4))
         wedges, texts, autotexts = ax.pie(
         counts,
         labels=labels,
         autopct='%1.1f%%',
         startangle=90,
         colors=colors,
-        textprops={'color': 'black'}
+        textprops={'color': 'black', 'fontsize': 10}
         )
-        ax.set_title("Distribusi Kelas", fontsize=12)
+        ax.set_title("Distribusi Kelas", fontsize=11)
         ax.axis('equal')
         st.pyplot(fig, use_container_width=True)
     with col_bar:
-        fig_bar, ax_bar = plt.subplots(figsize=(2, 2))
+        fig_bar, ax_bar = plt.subplots(figsize=(4, 3.5))
         sns.barplot(x=labels, y=counts.values, palette=colors, ax=ax_bar)
         ax_bar.set_title("Distribusi Kelas", fontsize=12)
-        ax_bar.set_xlabel("Class")
-        ax_bar.set_ylabel("Count")
+        ax_bar.set_xlabel("Class", fontsize=10)
+        ax_bar.set_ylabel("Count", fontsize=10)
+        ax_bar.tick_params(axis='x', labelsize=10)
+        ax_bar.tick_params(axis='y', labelsize=10)
         for p in ax_bar.patches:
             ax_bar.annotate(f"{int(p.get_height())}",
                         (p.get_x() + p.get_width() / 2, p.get_height()),
                         ha='center', va='bottom')
         st.pyplot(fig_bar, use_container_width=True)
-    with col_define:
-        st.markdown("""
-            <div class='content'>
-                <p style='text-align: justify;'>
-                Sesuai dengan visualisasi distribusi kelas dari pie chart dan bar chart di atas, dataset merupakan dataset yang tidak seimbang dengan data non-kejang sebesar 9200 dan data kejang sebesar 23000.
-                </p>
-            </div>
-        """, unsafe_allow_html=True)
+    

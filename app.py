@@ -383,3 +383,16 @@ elif selected == 'Klasifikasi EEG':
                     - Menjalani vaksinasi yang dianjurkan.
                     - Mencegah cedera kepala dengan menggunakan pengaman dan berhati-hati.
                 """)
+                
+elif selected == 'Klasifikasi EEG':
+    st.markdown("""
+    <div class='content'>
+        <h2>Kristalina Chandra Ratu</h2>
+        <p style='text-align: justify;'>
+            Penulis bernama lengkap Kristalina Chandra Ratu lahir di Salatiga, pada tanggal 13 September 2003. Penulis merupakan anak kedua dari dua bersaudara dari pasangan Sangkan Kabut Panangsang dan Tutik Setyowati. Penulis saat ini tinggal di Ds. Tetep RT. 04 RW. 03, Kecamatan Randuacir, Kelurahan Argomulyo, Kota Salatiga, Jawa Tengah.
+        </p>
+        <p style='text-align: justify;'>
+            Penulis menempuh pendidikan sarjana di Program Studi Teknik Informatika, Fakultas Matematika dan Ilmu Pengetahuan Alam, Universitas Negeri Semarang. Penulis mendalami beberapa bidang teknologi seperti UI/UX, hingga machine learning dan deep learning yang menjadi topik penelitian ini. Penulis juga mengikuti kegiatan-kegiatan mahasiswa, seperti manjadi bagian kepengurusan Unit Kegiatan Mahasiswa Seni Rupa Desain, Studi Independen Kampus Merdeka batch 6, serta magang PRIGEL di PT. Global Data Inspirasi dan CV. Serpihan Tech Solution.
+        </p>
+    </div>
+    """, unsafe_allow_html=True)

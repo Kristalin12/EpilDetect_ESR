@@ -72,33 +72,6 @@ st.markdown("""
         background-color: #f8f9fa;
         padding-top: 30px;
     }
-    .navbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 50px;
-        background-color: #1a535c;
-        color: #ffffff;
-        font-size: 20px;
-        font-weight: bold;
-    }
-    .navbar-brand {
-        text-decoration: none;
-        color: #ffffff;
-    }
-    .navbar-links {
-        list-style-type: none;
-        display: flex;
-        padding: 0;
-    }
-    .navbar-link {
-        margin-left: 20px;
-        text-decoration: none;
-        color: #ffffff;
-    }
-    .navbar-link:hover {
-        text-decoration: underline;
-    }
     .horizontal-scroll {
         display: flex;
         overflow-x: auto;
@@ -159,7 +132,6 @@ with st.sidebar:
         default_index=0,
         styles={
             "container": {"padding": "5px", "background-color": "#f8f9fa"},
-            "icon": {"color": "#4ecdc4", "font-size": "20px"},
             "nav-link": {"font-size": "16px", "text-align": "left", "margin":"5px"},
             "nav-link-selected": {"background-color": "#4ecdc4", "color": "white"},
         }

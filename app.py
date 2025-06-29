@@ -188,7 +188,7 @@ if selected == "Dashboard":
         <h2>Penyakit Epilepsi</h2>
     <div>
     """, unsafe_allow_html=True)
-    col1, col2 = st.columns([2, 3])
+    col1, col2 = st.columns([3, 3])
     with col1:
         st.image("asset/epilepsi.jpg", caption="", width=600, use_container_width=True)
     with col2:

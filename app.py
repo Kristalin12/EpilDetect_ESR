@@ -153,7 +153,7 @@ st.markdown("""
 
 # Sidebar menu
 st.sidebar.markdown("## 🧠 NeuroScan")
-with st.sidebar
+with st.sidebar:
     selected = option_menu(
         menu_title="",
         options=["🏠 Dashboard", "📊Dataset", "🧬Klasifikasi EEG", "👤Tentang Peneliti"],

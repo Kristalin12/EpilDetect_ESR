@@ -158,6 +158,7 @@ if selected == "🏠 Dashboard":
         color: #4ecdc4;
     }
     """, unsafe_allow_html=True)
+    
     col1, col2 = st.columns([1, 3])
     with col1:
         st.image(Image.open(logo_path), width=150, output_format="auto")
@@ -166,10 +167,11 @@ if selected == "🏠 Dashboard":
         st.markdown("<p style='font-size:1rem;'>Mendeteksi Kejang Epilepsi Berbasis Data EEG dengan Teknik Otomatisasi</p>", unsafe_allow_html=True)
         
     st.markdown("---")
-    st.markdown("<div class='content'>", unsafe_allow_html=True)
-    st.markdown("<h2>Tentang NeuroScan</h2>")
-    st.write("""
-        <div style='text-align: justify'>
-        **NeuroScan** merupakan implementasi sistem deteksi kejang epilepsi secara otomatis menggunakan metode Convolutional Autoencoder untuk ekstraksi fitur dan gabnungan Regresi Logistik dan SVM menggunakan soft voting untuk klasifikasi. Sistem ini merupakan hasil dari penelitian **“Optimasi Regresi Logistik dan Support Vector Machine Menggunakan Convolutional Autoencoder Untuk Deteksi Kejang Epilepsi”**.
-        """)
-    st.write("<br>", unsafe_allow_html=True)
+    st.markdown("""
+    <div class='content'>
+        <h2>Tentang NeuroScan</h2>
+        <p style='text-align: justify;'>
+            <strong>NeuroScan</strong> merupakan implementasi sistem deteksi kejang epilepsi secara otomatis menggunakan metode Convolutional Autoencoder untuk ekstraksi fitur dan gabnungan Regresi Logistik dan SVM menggunakan soft voting untuk klasifikasi. Sistem ini merupakan hasil dari penelitian <strong>“Optimasi Regresi Logistik dan Support Vector Machine Menggunakan Convolutional Autoencoder Untuk Deteksi Kejang Epilepsi”</strong>.
+        </p>
+    </div>
+    """, unsafe_allow_html=True)

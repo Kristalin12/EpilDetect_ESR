@@ -281,9 +281,9 @@ elif selected == 'Dataset':
         autopct='%1.1f%%',
         startangle=90,
         colors=colors,
-        textprops={'color': 'black', 'fontsize': 10}
+        textprops={'color': 'black', 'fontsize': 8}
         )
-        ax.set_title("Distribusi Kelas", fontsize=10)
+        ax.set_title("Distribusi Kelas", fontsize=8)
         ax.axis('equal')
         st.pyplot(fig, use_container_width=True)
     with col_bar:

@@ -235,7 +235,22 @@ elif selected == 'Dataset':
     """, unsafe_allow_html=True)
     st.write("Dataset epileptic seizure recognition dapat diunduh pada tombol berikut")
     st.link_button("Epileptic Seizure Detection", "https://www.kaggle.com/datasets/harunshimanto/epileptic-seizure-recognition/data")
+    
     st.markdown("---")
     st.header("Tabel Data Lengkap")
     df = pd.read_csv("Epileptic_Seizure_Recognition.csv")
     st.dataframe(df)
+    
+    st.markdown("---")
+    st.header("Visualisasi Data")
+    class_labels = df['y'].unique()
+    selected_class = st.selectbox("Pilih Kategori (y)", sorted(class_labels))
+    filtered_df = df[df['y'] == selected_class]
+    
+    signal = filtered_df.iloc[0, :-1]  # first sample of selected class (just for demo)
+    fig, ax = plt.subplots(figsize=(10, 4))
+    ax.plot(signal)
+    ax.set_title(f"Sinyal EEG - Contoh dari Kelas {selected_class}")
+    ax.set_xlabel("Channel Index")
+    ax.set_ylabel("Amplitude")
+    st.pyplot(fig)

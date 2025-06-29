@@ -234,18 +234,4 @@ elif selected == 'Dataset':
     </div>
     """, unsafe_allow_html=True)
     st.write("Dataset epileptic seizure recognition dapat diunduh pada tombol berikut")
-    def redirect_button(url: str, text: str= None, color="#FD504D"):
-        st.markdown(f"""
-        <a href="{url}" target="_self">
-        <div style="
-            display: inline-block;
-            padding: 0.5em 1em;
-            color: #FFFFFF;
-            background-color: {color};
-            border-radius: 3px;
-            text-decoration: none;">
-            {text}
-        </div>
-        </a>
-        """, unsafe_allow_html=True)
-        redirect_button("https://www.kaggle.com/datasets/harunshimanto/epileptic-seizure-recognition/data","Epileptic Seizure Recognition")
+    st.link_button("Go to Kaggle Dataset", "https://www.kaggle.com/datasets/harunshimanto/epileptic-seizure-recognition/data")

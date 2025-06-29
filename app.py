@@ -384,7 +384,7 @@ elif selected == 'Klasifikasi EEG':
                     - Mencegah cedera kepala dengan menggunakan pengaman dan berhati-hati.
                 """)
                 
-elif selected == 'Klasifikasi EEG':
+elif selected == 'Tentang Peneliti':
     st.markdown("""
     <div class='content'>
         <h2>Kristalina Chandra Ratu</h2>

@@ -147,17 +147,6 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-if os.path.exists(logo_path):
-    col1, col2 = st.columns([1, 3])
-    with col1:
-        st.image(Image.open(logo_path), width=150, output_format="auto")
-    with col2:
-        st.title("NeuroScan - Epileptic Seizure Recognition")
-        st.markdown("<p style='font-size:1rem;'>Mendeteksi Kejang Epilepsi Berbasis Data EEG dengan Teknik Otomatisasi</p>", unsafe_allow_html=True)
-else:
-    st.title("NeuroScan - Epileptic Seizure Recognition")
-    st.subheader("Mendeteksi Kejang Epilepsi Berbasis Data EEG")
-
 # Sidebar navigation
 with st.sidebar:
     selected = option_menu(
@@ -168,6 +157,13 @@ with st.sidebar:
 
 # Dashboard
 if selected == "🏠 Dashboard":
+col1, col2 = st.columns([1, 3])
+    with col1:
+        st.image(Image.open(logo_path), width=150, output_format="auto")
+    with col2:
+        st.title("NeuroScan - Epileptic Seizure Recognition")
+        st.markdown("<p style='font-size:1rem;'>Mendeteksi Kejang Epilepsi Berbasis Data EEG dengan Teknik Otomatisasi</p>", unsafe_allow_html=True)
+        
     st.markdown("---")
     st.markdown("""
     <style>

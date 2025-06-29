@@ -182,7 +182,7 @@ if selected == "🏠 Dashboard":
         .logo {
             display: block;
             margin: 0 auto;
-            width: 150px;
+            width: 120px;
             border-radius: 50%;
         }
         /* Content styles */

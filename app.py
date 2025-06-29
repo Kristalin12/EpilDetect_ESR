@@ -272,15 +272,7 @@ elif selected == 'Dataset':
     labels = ['non-kejang', 'kejang']  
     colors = ['orange', 'royalblue'] 
     
-    col_bar, col_pie, col_define = st.columns([3, 3, 4.5])
-    with col_define:
-        st.markdown("""
-            <div class='content'>
-                <p style='text-align: justify;'>
-                Sesuai dengan visualisasi distribusi kelas dari pie chart dan bar chart di atas, dataset merupakan dataset yang <b>tidak seimbang</b> dengan data <b>non-kejang</b> sebesar <b>9200</b> dan data <b>kejang</b> sebesar <b>2300</b>.
-                </p>
-            </div>
-        """, unsafe_allow_html=True)
+    col_bar, col_pie= st.columns([3, 3])        
     with col_pie:
         fig, ax = plt.subplots(figsize=(4, 4))
         wedges, texts, autotexts = ax.pie(
@@ -307,4 +299,10 @@ elif selected == 'Dataset':
                         (p.get_x() + p.get_width() / 2, p.get_height()),
                         ha='center', va='bottom')
         st.pyplot(fig_bar, use_container_width=True)
-    
+    st.markdown("""
+            <div class='content'>
+                <p style='text-align: justify;'>
+                Sesuai dengan visualisasi distribusi kelas dari pie chart dan bar chart di atas, dataset merupakan dataset yang <b>tidak seimbang</b> dengan data <b>non-kejang</b> sebesar <b>9200</b> dan data <b>kejang</b> sebesar <b>2300</b>.
+                </p>
+            </div>
+        """, unsafe_allow_html=True)

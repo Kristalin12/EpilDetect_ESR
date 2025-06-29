@@ -134,7 +134,7 @@ with st.sidebar:
         styles={
             "container": {"padding": "5px", "background-color": "#cce6ff"},
             "nav-link": {"font-size": "16px", "text-align": "left", "margin":"5px"},
-            "nav-link-selected": {"background-color": " #00ace6, "color": "white"},
+            "nav-link-selected": {"background-color": "#00ace6", "color": "white"},
         }
     )
 

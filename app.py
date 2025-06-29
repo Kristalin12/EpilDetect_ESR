@@ -266,10 +266,10 @@ elif selected == 'Dataset':
         ax.set_xlabel("Index Sinyal")
         ax.set_ylabel("Amplitudo")
         st.pyplot(fig)
-    st.markdown("### Visualisasi Distribusi Kelas")
-    df = pd.DataFrame({"y": np.r_[np.zeros(550), np.ones(650)]})
+    st.markdown("## Visualisasi Distribusi Kelas")
+    df = pd.DataFrame({"y": np.r_[np.zeros(9200), np.ones(2300)]})
     counts = df['y'].value_counts().sort_index()
-    labels = ['0', '1']  
+    labels = ['non-kejang', 'kejang']  
     colors = ['orange', 'royalblue'] 
     
     col_pie, col_bar = st.columns(2)
@@ -297,3 +297,4 @@ elif selected == 'Dataset':
                         (p.get_x() + p.get_width() / 2, p.get_height()),
                         ha='center', va='bottom')
         st.pyplot(fig_bar, use_container_width=True)
+    st.write("Sesuai dengan visualisasi distribusi kelas dari pie chart dan bar chart di atas, dataset merupakan dataset yang tidak seimbang dengan data non-kejang sebesar 9200 dan data kejang sebesar 23000")

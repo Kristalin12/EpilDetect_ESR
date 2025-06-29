@@ -176,7 +176,7 @@ if selected == "🏠 Dashboard":
         
     st.markdown("---")
     st.markdown("""
-        <div style= 'margin-bottom: -10px;'>
+        <div style= 'margin-bottom: -20px;'>
         <h3>Tentang NeuroScan<h3>
         <div>
         <div style='text-align: justify; font-size: 16px; font-weight: 400;'>

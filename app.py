@@ -75,16 +75,35 @@ if selected == "Dashboard":
         **Apa itu NeuroScan?**  
         NeuroScan adalah implementasi sistem deteksi kejang epilepsi secara otomatis menggunakan metode Convolutional Autoencoder untuk ekstraksi fitur dan gabnungan Regresi Logistik dan SVM menggunakan soft voting untuk klasifikasi sebagai hasil dari penelitian “Optimasi Regresi Logistik dan Support Vector Machine Menggunakan Convolutional Autoencoder Untuk Deteksi Kejang Epilepsi”..
 
-        **Model CAE dan LR-SVM:**  
-        
-        **Fitur Utama:**  
-        - Lihat dataset pelatihan  
-        - Uji data EEG baru  
-        - Lihat prediksi secara langsung  
-        - Pelajari latar belakang dan peneliti
-
-        **Metode yang Digunakan:**  
-        - **CNN Autoencoder**: Untuk ekstraksi fitur dari sinyal EEG  
-        - **Voting Classifier (Logistic Regression + SVM)**: Untuk klasifikasi kejang  
-        - **Standard Scaler**: Untuk normalisasi data
-    """)
+        **Model CAE dan LR-SVM**:  
+        """)
+    # MODEL EXPLAINATION
+    col1, col2, col3, col4 = st.columns(4)
+    with col1:
+    st.markdown("""
+    <div class='box'>
+        <div class='box-title'>Convolutional Autoencoder</div>
+        Digunakan untuk ekstraksi fitur dataset yang digunakan, yaitu dataset Epileptic Seizure Recognition (ESR).
+    </div>
+    """, unsafe_allow_html=True)
+    with col2:
+    st.markdown("""
+    <div class='box'>
+        <div class='box-title'>Logistic Regression</div>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
+    </div>
+    """, unsafe_allow_html=True)
+    with col3:
+    st.markdown("""
+    <div class='box'>
+        <div class='box-title'>Support Vector Machine</div>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
+    </div>
+    """, unsafe_allow_html=True)
+    with col3:
+    st.markdown("""
+    <div class='box'>
+        <div class='box-title'>Soft Voting Classifier</div>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
+    </div>
+    """, unsafe_allow_html=True)

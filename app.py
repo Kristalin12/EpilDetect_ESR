@@ -1,5 +1,4 @@
 import streamlit as st
-import webbrowser
 import pandas as pd
 import os
 import matplotlib.pyplot as plt
@@ -236,5 +235,6 @@ elif selected == 'Dataset':
     """, unsafe_allow_html=True)
     st.write("Dataset epileptic seizure recognition dapat diunduh pada tombol berikut")
     url = "https://www.kaggle.com/datasets/harunshimanto/epileptic-seizure-recognition/data"
-    if st.button('Epileptic Seizure Recognition'):
-        webbrowser.open_new_tab(url)
+    st.markdown(f'''
+    <a href={url}><button style="background-color:GreenYellow;">Stackoverflow</button></a>
+    ''', unsafe_allow_html=True)

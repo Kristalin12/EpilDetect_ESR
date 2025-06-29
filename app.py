@@ -150,7 +150,7 @@ st.markdown("""
 if os.path.exists(logo_path):
     col1, col2 = st.columns([1, 3])
     with col1:
-        st.image(Image.open(logo_path), width=90, use_container_width=True)
+        st.image(Image.open(logo_path), width=90, output_format="auto")
     with col2:
         st.title("NeuroScan - Epileptic Seizure Recognition")
         st.markdown("<p style='font-size:1rem;'>Mendeteksi Kejang Epilepsi Berbasis Data EEG</p>", unsafe_allow_html=True)

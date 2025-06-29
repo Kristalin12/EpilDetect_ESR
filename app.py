@@ -178,6 +178,9 @@ if selected == "🏠 Dashboard":
         <p style='text-align: justify;'>
             <strong>NeuroScan</strong> merupakan implementasi sistem deteksi kejang epilepsi secara otomatis menggunakan metode Convolutional Autoencoder untuk ekstraksi fitur dan gabnungan Regresi Logistik dan SVM menggunakan soft voting untuk klasifikasi. Sistem ini merupakan hasil dari penelitian <strong>“Optimasi Regresi Logistik dan Support Vector Machine Menggunakan Convolutional Autoencoder Untuk Deteksi Kejang Epilepsi”</strong>.
         </p>
+        <p style='text-align: justify;'>
+            Pada implementasi ini klasifikasi dilakukan dengan cara mengupload data EEG dengan banyaknya fitur 178. Kemudian sistem akan melakukan ekstraksi fitur untuk menghasilkan fitur laten dari model Convolutional Autoencoder, yang kemudian akan dimasukkan pada model klasifikasi. Fitur laten akan diuji masing-masing oleh Regresi Logistik dan Support Vector Machine, dan kemudian hasil akan diambil rata-rata untuk nilai prediksi.
+        </p>
     </div>
     """, unsafe_allow_html=True)
     

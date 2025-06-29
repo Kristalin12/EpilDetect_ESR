@@ -154,7 +154,7 @@ st.markdown("""
 # Sidebar menu
 st.sidebar.markdown("## 🧠 NeuroScan")
 st.sidebar.markdown("### Navigasi")
-selected_page = st.sidebar.radio("Menu:", [
+selected = st.sidebar.radio("Menu:", [
     "🏠 Dashboard",
     "📊Dataset",
     "🧬Klasifikasi EEG",

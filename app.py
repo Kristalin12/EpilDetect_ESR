@@ -188,7 +188,7 @@ if selected == "Dashboard":
         <h2>Penyakit Epilepsi</h2>
     <div>
     """, unsafe_allow_html=True)
-    col1, col2 = st.columns([1, 3])
+    col1, col2 = st.columns([2, 3])
     with col1:
         st.image("asset/epilepsi.jpg", caption="", width=900, use_container_width=True)
     with col2:
@@ -268,16 +268,16 @@ elif selected == 'Dataset':
     df['seizure_status'] = df['y'].apply(lambda x: 'Seizure' if x == 1 else 'Non-Seizure')
     status_counts = df['seizure_status'].value_counts()
     
-    col1, col2 = st.columns([1, 3])
+    col1, col2 = st.columns([2, 2])
     with col1:
-        fig_bar, ax_bar = plt.subplots(figsize=(4, 3)) 
+        fig_bar, ax_bar = plt.subplots(figsize=(6, 4)) 
         sns.barplot(x=status_counts.index, y=status_counts.values, palette='pastel', ax=ax_bar)
         ax_bar.set_title("Bar Chart")
         ax_bar.set_xlabel("Kategori")
         ax_bar.set_ylabel("Jumlah Sampel")
         st.pyplot(fig_bar, use_container_width=True)
     with col2:
-        fig_pie, ax_pie = plt.subplots(figsize=(4, 3))
+        fig_pie, ax_pie = plt.subplots(figsize=(6, 4))
         ax_pie.pie(status_counts.values, labels=status_counts.index, autopct='%1.1f%%', startangle=90)
         ax_pie.set_title("Pie Chart")
         st.pyplot(fig_pie, use_container_width=True)

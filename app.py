@@ -272,7 +272,7 @@ elif selected == 'Dataset':
     labels = ['non-kejang', 'kejang']  
     colors = ['orange', 'royalblue'] 
     
-    col_bar, col_pie, col_define = st.columns([2, 2, 3.5])
+    col_bar, col_pie, col_define = st.columns([3, 3, 4.5])
     with col_define:
         st.markdown("""
             <div class='content'>

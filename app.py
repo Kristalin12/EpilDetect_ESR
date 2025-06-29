@@ -49,7 +49,7 @@ st.markdown("""
     .description {
         font-size: 20px;
         color: #4ecdc4;
-        text-align: center;
+        text-align: justify;
         padding-bottom: 30px;
     }
     .file-uploader {

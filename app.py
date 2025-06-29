@@ -128,7 +128,7 @@ st.sidebar.markdown("## 🧠 NeuroScan")
 with st.sidebar:
     selected = option_menu(
         menu_title="",
-        options=["Dashboard", "Dataset", "Klasifikasi EEG", "Tentang Peneliti"],
+        options=["Dashboard", "Dataset", "Model", "Klasifikasi EEG", "Tentang Peneliti"],
         default_index=0,
         styles={
             "nav-link": {"font-size": "16px", "text-align": "left", "margin":"5px"},
@@ -199,4 +199,26 @@ if selected == "Dashboard":
             </p>
         <div>
         """, unsafe_allow_html=True)
-    
+    #---Penjelasan Model---
+    st.markdown("---")
+    st.markdown("""
+    <div class='content'>
+        <h2>Penyakit Epilepsi</h2>
+    <div>
+    """, unsafe_allow_html=True)
+    with st.expander("Convolutional Autoencoder", expanded=True)
+    st.markdown("""
+    Algoritma ini digunakan untuk menurunkan data masukan menjadi fitur representasi yang berdimensi lebih rendah dan memungkinkan algoritma ini untuk mempelajari pola representatif dalam ruang laten.
+    """)
+    with st.expander("Logistic Regression", expanded=True)
+    st.markdown("""
+    Teknik statistik yang dapat menangkap dan menafsirkan hubungan antara prediktor dan tanggapan dikotomis, seperti ada atau tidaknya penyakit.
+    """)
+    with st.expander("Support Vector Machine", expanded=True)
+    st.markdown("""
+    Algoritma machine learning yang digunakan untuk klasifikasi dan regresi, dengan mencari hyperplane terbaik untuk memisahkan data menjadi beberapa kelas dengan margin yang maksimal.
+    """)
+    with st.expander("Soft Voting Classifier", expanded=True)
+    st.markdown("""
+    Teknik yang melakukan prediksi dengan penggabungan beberapa algoritma secara individu yang kemudian digabungkan untuk mendapatkan jumlah probabilitas yang tertimbang..
+    """)

@@ -274,7 +274,7 @@ elif selected == 'Dataset':
     
     col_bar, col_pie= st.columns([3, 3])        
     with col_pie:
-        fig, ax = plt.subplots(figsize=(4, 4))
+        fig, ax = plt.subplots(figsize=(3.5, 3.5))
         wedges, texts, autotexts = ax.pie(
         counts,
         labels=labels,

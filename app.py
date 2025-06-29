@@ -243,6 +243,8 @@ elif selected == 'Dataset':
     
     st.markdown("---")
     st.header("Visualisasi Data")
+    df['y'] = df['y'].astype(int)
+    df = df.select_dtypes(include=[np.number])
     class_labels = sorted(df['y'].unique())
     class_labels_str = [str(label) for label in class_labels]
     
@@ -253,8 +255,8 @@ elif selected == 'Dataset':
     if filtered_df.empty:
         st.warning("Tidak ada data untuk kelas yang dipilih.")
     else:
-        signal = filtered_df.iloc[0, :-1]  # exclude the label column 'y'
-    
+        signal = filtered_df.iloc[0, :-1].astype(float)  # Exclude 'y' and convert to float
+        
         fig, ax = plt.subplots(figsize=(10, 4))
         ax.plot(signal)
         ax.set_title(f"Sinyal EEG - Contoh dari Kelas {selected_class}")

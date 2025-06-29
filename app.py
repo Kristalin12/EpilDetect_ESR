@@ -194,7 +194,7 @@ if selected == "🏠 Dashboard":
         }
         /* Content styles */
         .content {
-
+            text-align: justify
             background-color: #333;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
             margin-bottom: 20px;

@@ -243,16 +243,21 @@ elif selected == 'Dataset':
     
     st.markdown("---")
     st.header("Visualisasi Data")
-    class_labels = df['y'].unique()
-    class_labels_str = [str(label) for label in sorted(class_labels)]
+    class_labels = sorted(df['y'].unique())
+    class_labels_str = [str(label) for label in class_labels]
+    
     selected_str = st.selectbox("Pilih Kategori (y)", class_labels_str)
     selected_class = int(selected_str)
     filtered_df = df[df['y'] == selected_class]
     
-    signal = filtered_df.iloc[0, :-1]  # first sample of selected class (just for demo)
-    fig, ax = plt.subplots(figsize=(10, 4))
-    ax.plot(signal)
-    ax.set_title(f"Sinyal EEG - Contoh dari Kelas {selected_class}")
-    ax.set_xlabel("Channel Index")
-    ax.set_ylabel("Amplitude")
-    st.pyplot(fig)
+    if filtered_df.empty:
+        st.warning("Tidak ada data untuk kelas yang dipilih.")
+    else:
+        signal = filtered_df.iloc[0, :-1]  # exclude the label column 'y'
+    
+        fig, ax = plt.subplots(figsize=(10, 4))
+        ax.plot(signal)
+        ax.set_title(f"Sinyal EEG - Contoh dari Kelas {selected_class}")
+        ax.set_xlabel("Index Sinyal")
+        ax.set_ylabel("Amplitudo")
+        st.pyplot(fig)

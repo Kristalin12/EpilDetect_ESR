@@ -237,12 +237,5 @@ elif selected == 'Dataset':
     st.link_button("Epileptic Seizure Detection", "https://www.kaggle.com/datasets/harunshimanto/epileptic-seizure-recognition/data")
     st.markdown("---")
     st.header("Tabel Data Lengkap")
-    st.markdown("""
-    <div class='content'>
-        <p style='text-align: justify;'>
-            Dataset yang digunakan untuk penelitian ini adalah dataset epileptic seizure recognition dari kaggle, yang merupakan versi dataset Universitas Bonn yang telah direkonstruksi dan telah dibentuk kembali. Pada dataset ini 4097 titik data dibagi dan diacak menjadi 23 potongan. Oleh karena itu, setiap segmen pada dataset memiliki 23 potongan sehingga 23 x 500 menghasilkan 11.500 baris elemen informasi yang membentuk data, dengan setiap informasi berisikan 178 titik data selama satu detik. 
-        </p>
-    </div>
-    """, unsafe_allow_html=True)
-    df = pd.read_csv("Epileptic_Seizure_Recognition")
+    df = pd.read_csv("Epileptic_Seizure_Recognition.csv")
     st.dataframe(df)

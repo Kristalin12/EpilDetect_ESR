@@ -284,8 +284,6 @@ elif selected == 'Dataset':
         textprops={'color': 'black', 'fontsize': 10}
         )
         ax.set_title("Distribusi Kelas", fontsize=10)
-        ax.set_xlabel("", fontsize=7)
-        ax.set_ylabel("", fontsize=7)
         ax.axis('equal')
         st.pyplot(fig, use_container_width=True)
     with col_bar:

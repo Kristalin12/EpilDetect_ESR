@@ -225,6 +225,7 @@ if selected == "🏠 Dashboard":
     
     st.header("▶️Tentang NeuroScan")
     st.markdown("""
-        **Apa itu NeuroScan?**  
+        ### **Apa itu NeuroScan?**
+        
         NeuroScan adalah implementasi sistem deteksi kejang epilepsi secara    otomatis menggunakan metode Convolutional Autoencoder untuk ekstraksi fitur dan gabnungan Regresi Logistik dan SVM menggunakan soft voting untuk klasifikasi sebagai hasil dari penelitian “Optimasi Regresi Logistik dan Support Vector Machine Menggunakan Convolutional Autoencoder Untuk Deteksi Kejang Epilepsi”.
         """)

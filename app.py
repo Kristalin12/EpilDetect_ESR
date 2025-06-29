@@ -169,7 +169,7 @@ if selected == "🏠 Dashboard":
         st.image(Image.open(logo_path), width=150, output_format="auto")
     with col2:
         st.title("NeuroScan - Epileptic Seizure Recognition")
-        st.markdown("<p style='font-size:1rem;'>Mendeteksi Kejang Epilepsi Berbasis Data EEG dengan Teknik Otomatisasi</p>", unsafe_allow_html=True)
+        st.markdown("<p style='font-size:1rem;'>Mendeteksi Kejang Epilepsi Berbasis EEG dengan Teknik Otomatisasi</p>", unsafe_allow_html=True)
         
     st.markdown("---")
     st.markdown("""

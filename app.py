@@ -160,12 +160,6 @@ selected_page = st.sidebar.radio("Menu:", [
     "🧬Klasifikasi EEG",
     "👤Tentang Peneliti"
 ])
-with st.sidebar:
-    selected = option_menu(
-        "Menu",
-        ["🏠 Dashboard", "📚Dataset", "🛠️Pengujian", "👤Tentang Peneliti"],
-        default_index=0,
-    )
 
 # Dashboard
 if selected == "🏠 Dashboard":

@@ -330,16 +330,12 @@ elif selected == 'Klasifikasi EEG':
         if df.shape[1] != 178:
             st.error("❌ CSV harus memiliki 178 columns (fitur)")
         else:
+            clr = {0: "royalblue", 1: "crimson"}
+            lbl = {0: "Non‑Seizure", 1: "Seizure"}
+            
             st.subheader("📈 EEG Signal")
             st.write("Input data:")
             st.write(df)
-            fig, ax = plt.subplots(figsize=(4, 2.5))
-            ax.plot(df.iloc[0].values, color="royalblue", linewidth=1)
-            ax.set_xlabel("Index", fontsize=8)
-            ax.set_ylabel("Amplitude", fontsize=8)
-            ax.tick_params(labelsize=7)
-            ax.set_title("EEG Signal (from uploaded CSV)")
-            st.pyplot(fig, use_container_width=False)
 
             X_scaled = scaler.transform(df.values)
             X_resh   = X_scaled.reshape((-1, 178, 1))
@@ -348,6 +344,22 @@ elif selected == 'Klasifikasi EEG':
         
             y_pred_proba = clf.predict_proba(X_flat)[:, 1]
             y_pred       = (y_pred_proba >= 0.4).astype(int)
+            
+            fig, ax = plt.subplots(figsize=(4, 2.5))
+            for i, row in df.iterrows():
+                y = pred[i]
+                ax.plot(
+                    row.values,
+                    color=clr[y],
+                    linewidth=0.8,
+                    alpha=0.6,
+                    label=lbl[y] if i == 0 else "")
+                
+            ax.set_xlabel("Index", fontsize=8)
+            ax.set_ylabel("Amplitude", fontsize=8)
+            ax.tick_params(labelsize=7)
+            ax.set_title("EEG Signal (from uploaded CSV)")
+            st.pyplot(fig, use_container_width=False)
             
             if y_pred[0] == 1:
                 st.markdown("# ⚠️ **Seizure Detected** ⚠️", unsafe_allow_html=True)

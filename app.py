@@ -279,7 +279,7 @@ elif selected == 'Dataset':
         ax_bar.set_ylabel("Jumlah Sampel")
         st.pyplot(fig_bar, use_container_width=True)
     with col2:
-        fig_pie, ax_pie = plt.subplots(figsize=(6, 4))
+        fig_pie, ax_pie = plt.subplots(figsize=(5, 5))
         ax_pie.pie(status_counts.values, labels=status_counts.index, autopct='%1.1f%%', startangle=90)
         ax_pie.set_title("Pie Chart")
         st.pyplot(fig_pie, use_container_width=True)

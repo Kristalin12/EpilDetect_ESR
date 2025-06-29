@@ -244,7 +244,9 @@ elif selected == 'Dataset':
     st.markdown("---")
     st.header("Visualisasi Data")
     class_labels = df['y'].unique()
-    selected_class = st.selectbox("Pilih Kategori (y)", sorted(class_labels))
+    class_labels_str = [str(label) for label in sorted(class_labels)]
+    selected_str = st.selectbox("Pilih Kategori (y)", class_labels_str)
+    selected_class = int(selected_str)
     filtered_df = df[df['y'] == selected_class]
     
     signal = filtered_df.iloc[0, :-1]  # first sample of selected class (just for demo)

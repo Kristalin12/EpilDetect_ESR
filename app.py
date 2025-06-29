@@ -58,6 +58,14 @@ st.markdown("""
         font-size: 16px;
         margin-bottom: 10px;
     }
+    .scroll-container {
+        height: 500px;
+        overflow-y: auto;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        background-color: #fafafa;
+    }
     .box {
         border: 1px solid #e0e0e0;
         border-radius: 10px;
@@ -104,23 +112,23 @@ if selected == "Dashboard":
         """)
     
     # MODEL EXPLAINATION
-    st.markdown("### Model CAE dan LR-SVM:")
+    with st.expander("### Model CAE dan LR-SVM:")
     st.markdown("""
-    <div class="horizontal-scroll">
-        <div class="card">
-            <div class="card-title">Convolutional Autoencoder</div>
+    <div class="scroll-container">
+        <div class="box">
+            <div class="box-title">Convolutional Autoencoder</div>
             Digunakan untuk ekstraksi fitur dataset yang digunakan, yaitu dataset <i>Epileptic Seizure Recognition</i> (ESR).
         </div>
-        <div class="card">
-            <div class="card-title">Logistic Regression</div>
+        <div class="box">
+            <div class="box-title">Logistic Regression</div>
             Digunakan sebagai salah satu metode klasifikasi pada fitur yang telah diekstraksi untuk membedakan kondisi epilepsi dan non-epilepsi.
         </div>
-        <div class="card">
-            <div class="card-title">Support Vector Machine</div>
+        <div class="box">
+            <div class="box-title">Support Vector Machine</div>
             Digunakan sebagai classifier alternatif untuk meningkatkan akurasi prediksi melalui <i>kernel RBF</i>.
         </div>
-        <div class="card">
-            <div class="card-title">Soft Voting Classifier</div>
+        <div class="box">
+            <div class="box-title">Soft Voting Classifier</div>
             Kombinasi antara hasil prediksi dari Logistic Regression dan SVM untuk meningkatkan kinerja klasifikasi secara keseluruhan.
         </div>
     </div>

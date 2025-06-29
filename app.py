@@ -297,4 +297,8 @@ elif selected == 'Dataset':
                         (p.get_x() + p.get_width() / 2, p.get_height()),
                         ha='center', va='bottom')
         st.pyplot(fig_bar, use_container_width=True)
-    st.write("Sesuai dengan visualisasi distribusi kelas dari pie chart dan bar chart di atas, dataset merupakan dataset yang tidak seimbang dengan data non-kejang sebesar 9200 dan data kejang sebesar 23000")
+    st.write("
+        <p style='text-align: justify;'>
+            Sesuai dengan visualisasi distribusi kelas dari pie chart dan bar chart di atas, dataset merupakan dataset yang tidak seimbang dengan data non-kejang sebesar 9200 dan data kejang sebesar 23000.
+        </p>
+    ")

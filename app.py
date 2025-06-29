@@ -265,18 +265,19 @@ elif selected == 'Dataset':
         ax.set_ylabel("Amplitudo")
         st.pyplot(fig)
     st.markdown("### Visualisasi Distribusi Kelas")
-    class_counts = df['y'].value_counts().sort_index()
+    df['seizure_status'] = df['y'].apply(lambda x: 'Seizure' if x == 1 else 'Non-Seizure')
+    status_counts = df['seizure_status'].value_counts()
     
     col1, col2 = st.columns([1, 3])
     with col1:
         fig_bar, ax_bar = plt.subplots(figsize=(4, 3)) 
-        sns.barplot(x=class_counts.index, y=class_counts.values, ax=ax_bar, palette='Set2')
-        ax_bar.set_xlabel("Kelas (y)")
-        ax_bar.set_ylabel("Jumlah Sampel")
+        sns.barplot(x=status_counts.index, y=status_counts.values, palette='pastel', ax=ax_bar)
         ax_bar.set_title("Bar Chart")
+        ax_bar.set_xlabel("Kategori")
+        ax_bar.set_ylabel("Jumlah Sampel")
         st.pyplot(fig_bar, use_container_width=True)
     with col2:
-        fig_pie, ax_pie = plt.subplots(figsize=(4, 3))  # Atur ukuran
-        ax_pie.pie(class_counts.values, labels=class_counts.index, autopct='%1.1f%%', startangle=90)
+        fig_pie, ax_pie = plt.subplots(figsize=(4, 3))
+        ax_pie.pie(status_counts.values, labels=status_counts.index, autopct='%1.1f%%', startangle=90)
         ax_pie.set_title("Pie Chart")
         st.pyplot(fig_pie, use_container_width=True)

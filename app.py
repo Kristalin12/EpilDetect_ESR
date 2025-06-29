@@ -380,7 +380,6 @@ elif selected == 'Klasifikasi EEG':
                 st.markdown("""
                     - Menjaga kesehatan secara umum dengan diet yang sehat dan olahraga.
                     - Tidur yang cukup dan hindari alkohol atau narkoba.
-                    - Kelola stres
                     - Menjalani vaksinasi yang dianjurkan.
                     - Mencegah cedera kepala dengan menggunakan pengaman dan berhati-hati.
                 """)

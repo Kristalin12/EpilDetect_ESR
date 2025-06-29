@@ -274,7 +274,10 @@ elif selected == 'Dataset':
         st.markdown("""
             <div class='content'>
                 <p style='text-align: justify;'>
-                Sesuai dengan visualisasi distribusi kelas dari pie chart dan bar chart di atas, dataset merupakan dataset yang <b>tidak seimbang</b> dengan data <b>non-kejang</b> sebesar <b>9200</b> dan data <b>kejang</b> sebesar <b>2300</b>.
+                Dataset EEG yang digunakan pada penelitian ini memiliki distribusi kelas yang tidak seimbang antara data kejang dan non-kejang dengan data kejang dengan data <b>non-kejang</b> sebesar <b>9200</b> dan data <b>kejang</b> sebesar <b>2300</b>.
+                </p>
+                <p style='text-align: justify;'>
+                Oleh karena itu, dataset ini juga perlu diproses melalui penyeimbangan data agar model klasifikasi tidak bias terhadap kelas mayoritas.
                 </p>
             </div>
         """, unsafe_allow_html=True)

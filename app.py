@@ -189,7 +189,7 @@ if selected == "Dashboard":
     """, unsafe_allow_html=True)
     col1, col2 = st.columns([1, 3])
     with col1:
-        st.image("asset/epilepsi.jpeg", caption="", width=600, use_column_width=True)
+        st.image("asset/epilepsi.jpg", caption="", width=600, use_column_width=True)
     with col2:
         st.markdown("""
         <div class='content'>

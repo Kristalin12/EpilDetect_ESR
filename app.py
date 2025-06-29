@@ -69,6 +69,10 @@ st.markdown("""
         font-weight: 400;
         color: #333333;
     }
+    [data-testid="stSidebar"] {
+        background-color: #f8f9fa;
+        padding-top: 30px;
+    }
     .navbar {
         display: flex;
         justify-content: space-between;
@@ -147,7 +151,15 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Sidebar navigation
+# Sidebar menu
+st.sidebar.markdown("## 🧠 NeuroScan")
+st.sidebar.markdown("### Navigasi")
+selected_page = st.sidebar.radio("Menu:", [
+    "🏠 Dashboard",
+    "📊Dataset",
+    "🧬Klasifikasi EEG",
+    "👤Tentang Peneliti"
+])
 with st.sidebar:
     selected = option_menu(
         "Menu",

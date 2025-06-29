@@ -80,30 +80,30 @@ if selected == "Dashboard":
     # MODEL EXPLAINATION
     col1, col2, col3, col4 = st.columns(4)
     with col1:
-    st.markdown("""
-    <div class='box'>
-        <div class='box-title'>Convolutional Autoencoder</div>
-        Digunakan untuk ekstraksi fitur dataset yang digunakan, yaitu dataset Epileptic Seizure Recognition (ESR).
-    </div>
-    """, unsafe_allow_html=True)
+        st.markdown("""
+        <div class='box'>
+            <div class='box-title'>Convolutional Autoencoder</div>
+            Digunakan untuk ekstraksi fitur dataset yang digunakan, yaitu dataset Epileptic Seizure Recognition (ESR).
+        </div>
+        """, unsafe_allow_html=True)
     with col2:
-    st.markdown("""
-    <div class='box'>
-        <div class='box-title'>Logistic Regression</div>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
-    </div>
-    """, unsafe_allow_html=True)
+        st.markdown("""
+        <div class='box'>
+            <div class='box-title'>Logistic Regression</div>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
+        </div>
+        """, unsafe_allow_html=True)
     with col3:
-    st.markdown("""
-    <div class='box'>
-        <div class='box-title'>Support Vector Machine</div>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
-    </div>
-    """, unsafe_allow_html=True)
+        st.markdown("""
+        <div class='box'>
+            <div class='box-title'>Support Vector Machine</div>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
+        </div>
+        """, unsafe_allow_html=True)
     with col3:
-    st.markdown("""
-    <div class='box'>
-        <div class='box-title'>Soft Voting Classifier</div>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
-    </div>
-    """, unsafe_allow_html=True)
+        st.markdown("""
+        <div class='box'>
+            <div class='box-title'>Soft Voting Classifier</div>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
+        </div>
+        """, unsafe_allow_html=True)

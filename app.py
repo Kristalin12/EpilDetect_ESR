@@ -156,6 +156,12 @@ if selected == "🏠 Dashboard":
     h1, h2 {
         color: #4ecdc4;
     }
+    .image {
+            width: 100%;
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
     """, unsafe_allow_html=True)
     
     col1, col2 = st.columns([1, 3])
@@ -174,3 +180,4 @@ if selected == "🏠 Dashboard":
         </p>
     </div>
     """, unsafe_allow_html=True)
+    

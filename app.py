@@ -128,16 +128,16 @@ st.sidebar.markdown("## 🧠 NeuroScan")
 with st.sidebar:
     selected = option_menu(
         menu_title="",
-        options=["🏠 Dashboard", "📊Dataset", "🧬Klasifikasi EEG", "👤Tentang Peneliti"],
+        options=["Dashboard", "Dataset", "Klasifikasi EEG", "Tentang Peneliti"],
         default_index=0,
         styles={
-            "nav-link": {"font-size": "16px", "text-align": "left", "margin":"5px"},
+            "nav-link": {"font-size": "14px", "text-align": "left", "margin":"5px"},
             "nav-link-selected": {"background-color": "#00ace6", "color": "white"},
         }
     )
 
 # Dashboard
-if selected == "🏠 Dashboard":
+if selected == "Dashboard":
     st.markdown("""
     <style>
     .header{

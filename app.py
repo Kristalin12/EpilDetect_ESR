@@ -266,40 +266,12 @@ elif selected == 'Dataset':
         ax.set_xlabel("Index Sinyal")
         ax.set_ylabel("Amplitudo")
         st.pyplot(fig)
-    st.markdown("## Visualisasi Distribusi Kelas")
-    df = pd.DataFrame({"y": np.r_[np.zeros(9200), np.ones(2300)]})
-    counts = df['y'].value_counts().sort_index()
-    labels = ['non-kejang', 'kejang']  
-    colors = ['orange', 'royalblue'] 
-    
-    col_bar, col_pie= st.columns([3, 3])        
-    with col_pie:
-        fig, ax = plt.subplots(figsize=(2.5, 2.5))
-        wedges, texts, autotexts = ax.pie(
-        counts,
-        labels=labels,
-        autopct='%1.1f%%',
-        startangle=90,
-        colors=colors,
-        textprops={'color': 'black', 'fontsize': 8}
-        )
-        ax.set_title("Distribusi Kelas", fontsize=8)
-        ax.axis('equal')
-        st.pyplot(fig, use_container_width=True)
-    with col_bar:
-        fig_bar, ax_bar = plt.subplots(figsize=(4, 3.5))
-        sns.barplot(x=labels, y=counts.values, palette=colors, ax=ax_bar)
-        ax_bar.set_title("Distribusi Kelas", fontsize=12)
-        ax_bar.set_xlabel("Class", fontsize=10)
-        ax_bar.set_ylabel("Count", fontsize=10)
-        ax_bar.tick_params(axis='x', labelsize=10)
-        ax_bar.tick_params(axis='y', labelsize=10)
-        for p in ax_bar.patches:
-            ax_bar.annotate(f"{int(p.get_height())}",
-                        (p.get_x() + p.get_width() / 2, p.get_height()),
-                        ha='center', va='bottom')
-        st.pyplot(fig_bar, use_container_width=True)
-    st.markdown("""
+    st.markdown("## Visualisasi Distribusi Kelas") 
+    col1, col2= st.columns([2, 3])        
+    with col1:
+        st.image("asset/Distribusi_Kelas.png", caption="", width=600, use_container_width=True)
+    with col2:
+        st.markdown("""
             <div class='content'>
                 <p style='text-align: justify;'>
                 Sesuai dengan visualisasi distribusi kelas dari pie chart dan bar chart di atas, dataset merupakan dataset yang <b>tidak seimbang</b> dengan data <b>non-kejang</b> sebesar <b>9200</b> dan data <b>kejang</b> sebesar <b>2300</b>.

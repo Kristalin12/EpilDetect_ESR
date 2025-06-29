@@ -150,7 +150,7 @@ if selected == "🏠 Dashboard":
         margin-bottom: 20px;
     }
     .content{
-        background-color: #333;
+        background-color: #ffffff;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         margin-bottom: 20px;
     }

@@ -31,6 +31,14 @@ st.markdown("""
         font-weight: 400;
         color: #333333;
     }
+    .scroll-container {
+        height: 500px;
+        overflow-y: auto;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        background-color: #fafafa;
+    }
     .box {
         border: 1px solid #e0e0e0;
         border-radius: 10px;
@@ -73,37 +81,29 @@ if selected == "Dashboard":
     st.header("▶️Tentang NeuroScan")
     st.markdown("""
         **Apa itu NeuroScan?**  
-        NeuroScan adalah implementasi sistem deteksi kejang epilepsi secara otomatis menggunakan metode Convolutional Autoencoder untuk ekstraksi fitur dan gabnungan Regresi Logistik dan SVM menggunakan soft voting untuk klasifikasi sebagai hasil dari penelitian “Optimasi Regresi Logistik dan Support Vector Machine Menggunakan Convolutional Autoencoder Untuk Deteksi Kejang Epilepsi”..
-
-        **Model CAE dan LR-SVM**:  
+        NeuroScan adalah implementasi sistem deteksi kejang epilepsi secara otomatis menggunakan metode Convolutional Autoencoder untuk ekstraksi fitur dan gabnungan Regresi Logistik dan SVM menggunakan soft voting untuk klasifikasi sebagai hasil dari penelitian “Optimasi Regresi Logistik dan Support Vector Machine Menggunakan Convolutional Autoencoder Untuk Deteksi Kejang Epilepsi”.
         """)
+    
     # MODEL EXPLAINATION
-    col1, col2, col3, col4 = st.columns(4)
-    with col1:
-        st.markdown("""
-        <div class='box'>
-            <div class='box-title'>Convolutional Autoencoder</div>
-            Digunakan untuk ekstraksi fitur dataset yang digunakan, yaitu dataset Epileptic Seizure Recognition (ESR).
+    st.markdown("### Model CAE dan LR-SVM:")
+    st.markdown("""
+    <div class="scroll-container">
+        <div class="box">
+            <div class="box-title">Convolutional Autoencoder</div>
+            Digunakan untuk ekstraksi fitur dataset yang digunakan, yaitu dataset <i>Epileptic Seizure Recognition</i> (ESR).
         </div>
-        """, unsafe_allow_html=True)
-    with col2:
-        st.markdown("""
-        <div class='box'>
-            <div class='box-title'>Logistic Regression</div>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
+        <div class="box">
+            <div class="box-title">Logistic Regression</div>
+            Digunakan sebagai salah satu metode klasifikasi pada fitur yang telah diekstraksi untuk membedakan kondisi epilepsi dan non-epilepsi.
         </div>
-        """, unsafe_allow_html=True)
-    with col3:
-        st.markdown("""
-        <div class='box'>
-            <div class='box-title'>Support Vector Machine</div>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
+        <div class="box">
+            <div class="box-title">Support Vector Machine</div>
+            Digunakan sebagai classifier alternatif untuk meningkatkan akurasi prediksi melalui <i>kernel RBF</i>.
         </div>
-        """, unsafe_allow_html=True)
-    with col3:
-        st.markdown("""
-        <div class='box'>
-            <div class='box-title'>Soft Voting Classifier</div>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
+        <div class="box">
+            <div class="box-title">Soft Voting Classifier</div>
+            Kombinasi antara hasil prediksi dari Logistic Regression dan SVM untuk meningkatkan kinerja klasifikasi secara keseluruhan.
         </div>
-        """, unsafe_allow_html=True)
+    </div>
+    """, unsafe_allow_html=True)
+    

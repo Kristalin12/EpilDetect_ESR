@@ -363,7 +363,7 @@ elif selected == 'Klasifikasi EEG':
             
             if y_pred[0] == 1:
                 st.error(" The person is experiencing a seizure!", icon="😟")
-                st.header("⚠️ Saran Dokter yang Penting ⚠️")
+                st.markdown("## ⚠️ Saran Dokter yang Penting ⚠️")
                 st.markdown("""
                     - Minum obat secara konsisten pada waktu yang sama setiap hari.
                     - Hindari pemicu seperti kurang tidur, lampu yang menyala, atau alkohol.

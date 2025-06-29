@@ -180,4 +180,23 @@ if selected == "Dashboard":
         </p>
     </div>
     """, unsafe_allow_html=True)
+    # ---Penjelasan Epilepsi---
+    st.markdown("---")
+    st.markdown("""
+    <div class='content'>
+        <h2>Penyakit Epilepsi</h2>
+    <div>
+    """, unsafe_allow_html=True)
+    col1, col2 = st.columns([1, 3])
+    with col1:
+        st.image("asset/epilepsi.jpeg", caption="", width=600, use_column_width=True)
+    with col2:
+        st.markdown("""
+        <div class='content'>
+            <p style='text-align: justify;'>
+                Menurut International League Against Epilepsy (ILAE), epilepsi merupakan penyakit yang ditandai dengan kecenderungan terus-menerus untuk menimbulkan kejang epilepsi, yang secara praktis dapat dioperasionalkan dengan adanya dua kejang yang tidak diprovokasi atau tidak memiliki faktor langsung dengan jarak antar kejang lebih dari 24 jam (Fisher et al., 2014).
+                Kejang epilepsi sendiri merupakan kondisi sesaat yang terjadi akibat aktivitas neuron di otak yang tidak normal, berlebihan, atau terjadi secara sinkron (Fisher et al., 2005). Menurut World Health Organization (WHO, 2024), lima puluh juta orang diperkirakan telah didiagnosis dengan penyakit epilepsi.
+            </p>
+        <div>
+        """, unsafe_allow_html=True)
     

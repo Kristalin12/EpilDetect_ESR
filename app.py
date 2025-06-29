@@ -267,19 +267,35 @@ elif selected == 'Dataset':
         ax.set_ylabel("Amplitudo")
         st.pyplot(fig)
     st.markdown("### Visualisasi Distribusi Kelas")
-    df['seizure_status'] = df['y'].apply(lambda x: 'Seizure' if x == 1 else 'Non-Seizure')
-    status_counts = df['seizure_status'].value_counts()
+    df = pd.DataFrame({"y": np.r_[np.zeros(550), np.ones(650)]})
+    counts = df['y'].value_counts().sort_index()
+    labels = ['0', '1']  
+    colors = ['orange', 'royalblue'] 
     
-    col1, col2 = st.columns([2, 2])
-    with col1:
-        fig_bar, ax_bar = plt.subplots(figsize=(6, 4)) 
-        sns.barplot(x=status_counts.index, y=status_counts.values, palette='pastel', ax=ax_bar)
-        ax_bar.set_title("Bar Chart")
-        ax_bar.set_xlabel("Kategori")
-        ax_bar.set_ylabel("Jumlah Sampel")
+    col_pie, col_bar = st.columns(2)
+    with col_pie:
+        fig, ax = plt.subplots(figsize=(4, 4))
+        wedges, texts, autotexts = ax.pie(
+        counts,
+        labels=labels,
+        autopct='%1.1f%%',
+        startangle=90,
+        colors=colors,
+        textprops={'color': 'black'}
+        )
+        centre_circle = plt.Circle((0, 0), 0.55, fc='white')
+        ax.add_artist(centre_circle)
+        ax.set_title("Distribusi Kelas", fontsize=12)
+        ax.axis('equal')
+        st.pyplot(fig, use_container_width=True)
+    with col_bar:
+        fig_bar, ax_bar = plt.subplots(figsize=(4, 4))
+        sns.barplot(x=labels, y=counts.values, palette=colors, ax=ax_bar)
+        ax_bar.set_title("Distribusi Kelas", fontsize=12)
+        ax_bar.set_xlabel("Class")
+        ax_bar.set_ylabel("Count")
+        for p in ax_bar.patches:
+            ax_bar.annotate(f"{int(p.get_height())}",
+                        (p.get_x() + p.get_width() / 2, p.get_height()),
+                        ha='center', va='bottom')
         st.pyplot(fig_bar, use_container_width=True)
-    with col2:
-        fig_pie, ax_pie = plt.subplots(figsize=(3, 4))
-        ax_pie.pie(status_counts.values, labels=status_counts.index, autopct='%1.1f%%', startangle=90)
-        ax_pie.set_title("Pie Chart")
-        st.pyplot(fig_pie, use_container_width=True)

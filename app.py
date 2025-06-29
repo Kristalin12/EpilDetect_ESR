@@ -274,7 +274,7 @@ elif selected == 'Dataset':
     
     col_bar, col_pie= st.columns([3, 3])        
     with col_pie:
-        fig, ax = plt.subplots(figsize=(3, 3))
+        fig, ax = plt.subplots(figsize=(2.5, 2.5))
         wedges, texts, autotexts = ax.pie(
         counts,
         labels=labels,
@@ -284,8 +284,8 @@ elif selected == 'Dataset':
         textprops={'color': 'black', 'fontsize': 10}
         )
         ax.set_title("Distribusi Kelas", fontsize=10)
-        ax.set_xlabel("Class", fontsize=10)
-        ax.set_ylabel("Count", fontsize=10)
+        ax.set_xlabel(fontsize=10)
+        ax.set_ylabel(fontsize=10)
         ax.axis('equal')
         st.pyplot(fig, use_container_width=True)
     with col_bar:

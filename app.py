@@ -129,7 +129,7 @@ st.sidebar.markdown("## 🧠 NeuroScan")
 with st.sidebar:
     selected = option_menu(
         menu_title="",
-        options=["Dashboard", "Dataset", "Model", "Klasifikasi EEG", "Tentang Peneliti"],
+        options=["Dashboard", "Dataset", "Klasifikasi EEG", "Tentang Peneliti"],
         default_index=0,
         styles={
             "nav-link": {"font-size": "16px", "text-align": "left", "margin":"5px"},
@@ -308,3 +308,50 @@ elif selected == 'Dataset':
                 </p>
             </div>
         """, unsafe_allow_html=True)
+    
+#---Uji---
+elif selected == 'Klasifikasi EEG':
+    @st.cache_resource
+    def load_artifacts():
+        encoder   = load_model("encoder.keras", compile=False)      
+        clf       = joblib.load("voting_model.pkl")            
+        scaler    = joblib.load("scaler.pkl")                      
+        return encoder, clf, scaler
+    
+    encoder, clf, scaler = load_artifacts()
+    
+    st.title("Epileptic Seizure Recognition")
+    st.caption("Upload CSV file dengan 178 fitur EEG")
+    
+    uploaded_file = st.file_uploader("Drag and drop file here", type=["csv"])
+    
+    if uploaded_file is not None:
+        df = pd.read_csv(uploaded_file)
+        if df.shape[1] != 178:
+            st.error("CSV must have exactly 178 columns (features)")
+        else:
+            st.subheader("📈 EEG Signal")
+            st.write("Input data:")
+            st.write(df)
+            fig, ax = plt.subplots()
+            ax.plot(df.iloc[0].values, color="purple", linewidth=1)
+            ax.set_xlabel("Time")
+            ax.set_ylabel("Amplitude")
+            ax.set_title("EEG Signal (from uploaded CSV)")
+            st.pyplot(fig)
+
+            X_scaled = scaler.transform(df.values)
+            X_resh   = X_scaled.reshape((-1, 178, 1))
+            latent   = encoder.predict(X_resh, verbose=0)
+            X_flat   = latent.reshape((latent.shape[0], -1))
+        
+            y_pred_proba = clf.predict_proba(X_flat)[:, 1]
+            y_pred       = (y_pred_proba >= 0.4).astype(int)
+            
+            if y_pred[0] == 1:
+                st.markdown("# ⚠️ **Seizure Detected** ⚠️", unsafe_allow_html=True)
+                st.markdown("#### **Recommended Action:** Seek immediate medical attention.")
+            else:
+                st.markdown("# ✅ **No Seizure Detected**", unsafe_allow_html=True)
+                st.markdown("#### **Recommended Action:** Continue monitoring as usual.")
+    

@@ -236,5 +236,5 @@ elif selected == 'Dataset':
     """, unsafe_allow_html=True)
     st.write("Dataset epileptic seizure recognition dapat diunduh pada tombol berikut")
     url = "https://www.kaggle.com/datasets/harunshimanto/epileptic-seizure-recognition/data"
-    if st.button('Epileptic Seizure Recognition')
+    if st.button('Epileptic Seizure Recognition'):
         webbrowser.open_new_tab(url)

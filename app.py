@@ -320,25 +320,26 @@ elif selected == 'Klasifikasi EEG':
     
     encoder, clf, scaler = load_artifacts()
     
-    st.title("Epileptic Seizure Recognition")
+    st.title("Pengujian Model")
     st.caption("Upload CSV file dengan 178 fitur EEG")
     
-    uploaded_file = st.file_uploader("Drag and drop file here", type=["csv"])
+    uploaded_file = st.file_uploader("📂 Drag and drop file here", type=["csv"])
     
     if uploaded_file is not None:
         df = pd.read_csv(uploaded_file)
         if df.shape[1] != 178:
-            st.error("CSV must have exactly 178 columns (features)")
+            st.error("❌ CSV harus memiliki 178 columns (fitur)")
         else:
             st.subheader("📈 EEG Signal")
             st.write("Input data:")
             st.write(df)
-            fig, ax = plt.subplots()
-            ax.plot(df.iloc[0].values, color="purple", linewidth=1)
-            ax.set_xlabel("Time")
-            ax.set_ylabel("Amplitude")
+            fig, ax = plt.subplots(figsize=(4, 2.5))
+            ax.plot(df.iloc[0].values, color="royalblue", linewidth=1)
+            ax.set_xlabel("Index", fontsize=8)
+            ax.set_ylabel("Amplitude", fontsize=8)
+            ax.tick_params(labelsize=7)
             ax.set_title("EEG Signal (from uploaded CSV)")
-            st.pyplot(fig)
+            st.pyplot(fig, use_container_width=False)
 
             X_scaled = scaler.transform(df.values)
             X_resh   = X_scaled.reshape((-1, 178, 1))

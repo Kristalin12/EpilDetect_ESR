@@ -153,12 +153,17 @@ st.markdown("""
 
 # Sidebar menu
 st.sidebar.markdown("## 🧠 NeuroScan")
-selected = st.sidebar.radio("Menu:", [
-    "🏠 Dashboard",
-    "📊Dataset",
-    "🧬Klasifikasi EEG",
-    "👤Tentang Peneliti"
-])
+selected = option_menu(
+    menu_titile="",
+    options=["🏠 Dashboard", "📊Dataset", "🧬Klasifikasi EEG", "👤Tentang Peneliti"],
+    default_index=0,
+    styles={
+        "container": {"padding": "5px", "background-color": "#f8f9fa"},
+        "icon": {"color": "#4ecdc4", "font-size": "20px"},
+        "nav-link": {"font-size": "16px", "text-align": "left", "margin":"5px"},
+        "nav-link-selected": {"background-color": "#4ecdc4", "color": "white"},
+    }
+)
 
 # Dashboard
 if selected == "🏠 Dashboard":

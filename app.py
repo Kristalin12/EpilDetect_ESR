@@ -362,6 +362,18 @@ elif selected == 'Klasifikasi EEG':
             st.pyplot(fig, use_container_width=False)
             
             if y_pred[0] == 1:
-                st.error("⚠️ The person is experiencing a seizure!", icon="😟")
+                st.error(" The person is experiencing a seizure!", icon="😟")
+                st.markdown("""
+                <div class='content'>
+                    <h2>⚠️ Saran Dokter yang Penting ⚠️</h2>
+                        <p style='text-align: justify;'>
+                        - Minum obat secara konsisten pada waktu yang sama setiap hari.
+                        - Hindari pemicu seperti kurang tidur, lampu yang menyala, atau alkohol.
+                        - Buat catatan harian kejang untuk melacak episodenya.
+                        - Beri tahu kontak dekat tentang langkah pertolongan pertama selama kejang.
+                        - Jangan pernah menghentikan pengobatan tanpa saran medis.
+                        </p>
+                </div>
+                """, unsafe_allow_html=True)
             else:
-                st.success("✅ No seizure detected. All clear!", icon="😌")
+                st.success(" No seizure detected. All clear!", icon="😌")

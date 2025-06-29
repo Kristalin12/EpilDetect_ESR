@@ -153,7 +153,7 @@ if os.path.exists(logo_path):
         st.image(Image.open(logo_path), width=150, output_format="auto")
     with col2:
         st.title("NeuroScan - Epileptic Seizure Recognition")
-        st.markdown("<p style='font-size:1rem;'>Mendeteksi Kejang Epilepsi Berbasis Data EEG</p>", unsafe_allow_html=True)
+        st.markdown("<p style='font-size:1rem;'>Mendeteksi Kejang Epilepsi Berbasis Data EEG dengan Teknik Otomatisasi</p>", unsafe_allow_html=True)
 else:
     st.title("NeuroScan - Epileptic Seizure Recognition")
     st.subheader("Mendeteksi Kejang Epilepsi Berbasis Data EEG")
@@ -223,7 +223,7 @@ if selected == "🏠 Dashboard":
         </style>
     """, unsafe_allow_html=True)
     
-    st.markdown("▶️Tentang NeuroScan")
+    st.header("▶️Tentang NeuroScan")
     st.markdown("""
         **Apa itu NeuroScan?**  
         NeuroScan adalah implementasi sistem deteksi kejang epilepsi secara    otomatis menggunakan metode Convolutional Autoencoder untuk ekstraksi fitur dan gabnungan Regresi Logistik dan SVM menggunakan soft voting untuk klasifikasi sebagai hasil dari penelitian “Optimasi Regresi Logistik dan Support Vector Machine Menggunakan Convolutional Autoencoder Untuk Deteksi Kejang Epilepsi”.

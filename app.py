@@ -112,25 +112,25 @@ if selected == "Dashboard":
         """)
     
     # MODEL EXPLAINATION
-    with st.expander("### Model CAE dan LR-SVM:")
-    st.markdown("""
-    <div class="scroll-container">
-        <div class="box">
-            <div class="box-title">Convolutional Autoencoder</div>
-            Digunakan untuk ekstraksi fitur dataset yang digunakan, yaitu dataset <i>Epileptic Seizure Recognition</i> (ESR).
+    with st.expander("### Model CAE dan LR-SVM:"):
+        st.markdown("""
+        <div class="scroll-container">
+            <div class="box">
+                <div class="box-title">Convolutional Autoencoder</div>
+                Digunakan untuk ekstraksi fitur dataset yang digunakan, yaitu dataset <i>Epileptic Seizure Recognition</i> (ESR).
+            </div>
+            <div class="box">
+                <div class="box-title">Logistic Regression</div>
+                Digunakan sebagai salah satu metode klasifikasi pada fitur yang telah diekstraksi untuk membedakan kondisi epilepsi dan non-epilepsi.
+            </div>
+            <div class="box">
+                <div class="box-title">Support Vector Machine</div>
+                Digunakan sebagai classifier alternatif untuk meningkatkan akurasi prediksi melalui <i>kernel RBF</i>.
+            </div>
+            <div class="box">
+                <div class="box-title">Soft Voting Classifier</div>
+                Kombinasi antara hasil prediksi dari Logistic Regression dan SVM untuk meningkatkan kinerja klasifikasi secara keseluruhan.
+            </div>
         </div>
-        <div class="box">
-            <div class="box-title">Logistic Regression</div>
-            Digunakan sebagai salah satu metode klasifikasi pada fitur yang telah diekstraksi untuk membedakan kondisi epilepsi dan non-epilepsi.
-        </div>
-        <div class="box">
-            <div class="box-title">Support Vector Machine</div>
-            Digunakan sebagai classifier alternatif untuk meningkatkan akurasi prediksi melalui <i>kernel RBF</i>.
-        </div>
-        <div class="box">
-            <div class="box-title">Soft Voting Classifier</div>
-            Kombinasi antara hasil prediksi dari Logistic Regression dan SVM untuk meningkatkan kinerja klasifikasi secara keseluruhan.
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
+        """, unsafe_allow_html=True)
     

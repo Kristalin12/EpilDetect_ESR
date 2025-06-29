@@ -49,7 +49,7 @@ st.markdown("""
     .description {
         font-size: 20px;
         color: #4ecdc4;
-        padding-bottom: 30px;
+        padding-bottom: 20px;
     }
     .file-uploader {
         text-align: center;
@@ -176,7 +176,7 @@ if selected == "🏠 Dashboard":
         
     st.markdown("---")
     st.markdown("""
-        <h3>🔷Tentang NeuroScan<h3>
+        <h3>🔷 Tentang NeuroScan<h3>
         <div style='text-align: justify; font-size: 16px; font-weight: 400;'>
         <strong>NeuroScan</strong> merupakan implementasi sistem deteksi kejang epilepsi secara otomatis menggunakan metode Convolutional Autoencoder untuk ekstraksi fitur dan gabnungan Regresi Logistik dan SVM menggunakan soft voting untuk klasifikasi. Sistem ini merupakan hasil dari penelitian <strong>“Optimasi Regresi Logistik dan Support Vector Machine Menggunakan Convolutional Autoencoder Untuk Deteksi Kejang Epilepsi”</strong>.
         """, unsafe_allow_html=True)

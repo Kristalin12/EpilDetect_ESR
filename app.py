@@ -358,7 +358,7 @@ elif selected == 'Klasifikasi EEG':
                 """)
                 
 elif selected == 'Tentang Peneliti':
-    col1, col2 = st.columns([1, 12])
+    col1, col2 = st.columns([1, 11])
     with col1:
         st.image("asset/user.png", caption="", width=500, use_container_width=True)
     with col2:

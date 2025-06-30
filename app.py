@@ -364,7 +364,8 @@ elif selected == 'Tentang Peneliti':
             <i class="fa-solid fa-user" style="color: #74C0FC;"></i>
         """, unsafe_allow_html=True)
     with col2:
-        st.markdown("""
+        st.header("Kristalina Chandra Ratu")
+    st.markdown("""
         <div class='content'>
             <p style='text-align: justify;'>
                 Penulis bernama lengkap Kristalina Chandra Ratu lahir di Salatiga, pada tanggal 13 September 2003. Penulis merupakan anak kedua dari dua bersaudara dari pasangan Sangkan Kabut Panangsang dan Tutik Setyowati. Penulis saat ini tinggal di Ds. Tetep RT. 04 RW. 03, Kecamatan Randuacir, Kelurahan Argomulyo, Kota Salatiga, Jawa Tengah.

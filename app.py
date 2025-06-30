@@ -361,7 +361,7 @@ elif selected == 'Tentang Peneliti':
     col1, col2 = st.columns([1, 3])
     with col1:
         st.markdown("""
-            <i class="fa-solid fa-user" style="color: #74C0FC;"></i>
+            <i class="fa-solid fa-user"></i>
         """, unsafe_allow_html=True)
     with col2:
         st.header("Kristalina Chandra Ratu")

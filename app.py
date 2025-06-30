@@ -358,13 +358,9 @@ elif selected == 'Klasifikasi EEG':
                 """)
                 
 elif selected == 'Tentang Peneliti':
-    col1, col2 = st.columns([1, 3])
+    col1, col2 = st.columns([1, 2])
     with col1:
-        st.markdown("""
-            <div>
-                <i class="fa-solid fa-user"></i>
-            </div>
-        """, unsafe_allow_html=True)
+        st.image("asset/user.png", caption="", width=900, use_container_width=True)
     with col2:
         st.header("Kristalina Chandra Ratu")
     st.markdown("""
